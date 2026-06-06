@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchSearchProducts = async (querys) => {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}/api/search?${querys}`
+      `${process.env.SERVER_URL}/product/products-card?${querys}`
     );
 
     if (!response.ok) throw new Error("Failed to fetch wishlist");
@@ -54,7 +54,7 @@ export const fetchRelativeProducts = async (offset = 0, limit = 10, slug, option
 export const fetchCategory = async (url) => {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}/api/category/user/${url}`
+      `${process.env.SERVER_URL}/category/slug/${url}`
     );
 
     if (!response.ok) throw new Error("Failed to fetch Category");
@@ -70,7 +70,7 @@ export const fetchCategory = async (url) => {
 export const fetchCategoryProducts = async (url, query) => {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}/api/product/filter/${url}?${query}`
+      `${process.env.SERVER_URL}/product/products-card?categoryId=${url}${query ? `&${query}` : ""}`
     );
     if (!response.ok) throw new Error("Network response was not ok");
     return await response.json();

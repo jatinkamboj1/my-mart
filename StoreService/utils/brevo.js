@@ -1,35 +1,35 @@
-import { BrevoClient } from '@getbrevo/brevo';
+const { BrevoClient } = require("@getbrevo/brevo");
 
-const brevo = new BrevoClient({
-  apiKey: process.env.BREVO_API_KEY,
-});
-console.log(
-  "BREVO_API_KEY:",
-  process.env.BREVO_API_KEY
-);
-console.log(
-  "USER_EMAIL:",
-  process.env.USER_EMAIL
-);
-console.log(
-  "USER_Name:",
-  process.env.USER_Name
-);
-export const sendEmail = async ({subject, email, body}) => {
+const getBrevoClient = () => {
+  const apiKey =
+    process.env.BREVO_API_KEY || process.env.BREVO_SMTP_KEY;
+
+  if (!apiKey) {
+    throw new Error("Missing Brevo API key");
+  }
+
+  return new BrevoClient({ apiKey });
+};
+
+const sendEmail = async ({ subject, email, body }) => {
+  const brevo = getBrevoClient();
+
   try {
-    const result = await brevo.transactionalEmails.sendTransacEmail({
+    return await brevo.transactionalEmails.sendTransacEmail({
       sender: {
-        email: process.env.USER_EMAIL,
-        name: process.env.USER_Name,
+        email: process.env.USER_EMAIL || process.env.BREVO_EMAIL,
+        name: process.env.USER_Name || "MY MART",
       },
-      to: [{ email: email }],
+      to: [{ email }],
       subject,
       htmlContent: body,
     });
-
-    return result;
   } catch (error) {
     console.error("Brevo Error:", error.response?.body || error);
     throw error;
   }
+};
+
+module.exports = {
+  sendEmail,
 };
