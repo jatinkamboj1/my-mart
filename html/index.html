@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>MyMart | Under Maintenance</title>
+
+<link rel="icon" type="image/png" href="/public/short-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+    --theme-dark-active-color: #1e4d4f;
+    --theme-active-color: #5fb3a2;
+    --theme-gul-active-color: #8fd3c8;
+    --theme-ul-active-color: #e9f6f3;
+    --theme-light-active-color: #7ac943;
+    --theme-green-color: #4caf50;
+    --white-color: #fff;
+    --theme-back-color: #0f2f2e;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--theme-back-color),
+    var(--theme-dark-active-color)
+    );
+
+    position:relative;
+}
+
+/* Background Glow */
+
+.bg-circle{
+
+    position:absolute;
+    border-radius:50%;
+    background:rgba(95,179,162,.12);
+
+    animation:float 10s infinite ease-in-out;
+}
+
+.bg-circle.one{
+
+    width:320px;
+    height:320px;
+
+    top:-120px;
+    left:-80px;
+}
+
+.bg-circle.two{
+
+    width:420px;
+    height:420px;
+
+    bottom:-200px;
+    right:-150px;
+
+    animation-delay:2s;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-30px);
+    }
+}
+
+/* Floating Packages */
+
+.package-float{
+
+    position:absolute;
+    font-size:30px;
+
+    opacity:.15;
+
+    animation:floatBox 8s infinite ease-in-out;
+}
+
+.package-float.one{
+    top:10%;
+    left:10%;
+}
+
+.package-float.two{
+    top:20%;
+    right:10%;
+    animation-delay:2s;
+}
+
+.package-float.three{
+    bottom:12%;
+    left:18%;
+    animation-delay:4s;
+}
+
+@keyframes floatBox{
+
+    0%,100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-25px) rotate(8deg);
+    }
+}
+
+/* Main Card */
+
+.container{
+
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:760px;
+
+    padding:60px 45px;
+
+    border-radius:32px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+}
+
+/* Logo */
+
+.logo{
+
+    margin-bottom:25px;
+}
+
+.logo img{
+
+    width:260px;
+    max-width:100%;
+
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* Cart Animation */
+
+.cart-wrapper{
+
+    position:relative;
+
+    width:220px;
+    height:130px;
+
+    margin:0 auto 30px;
+}
+
+.cart{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:95px;
+
+    animation:cartMove 3s infinite ease-in-out;
+}
+
+.cart-box{
+
+    position:absolute;
+
+    width:34px;
+    height:34px;
+
+    background:var(--theme-active-color);
+
+    border-radius:8px;
+
+    top:12px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    animation:bounce 1.5s infinite;
+}
+
+/* Sparkles */
+
+.spark{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--theme-gul-active-color);
+
+    animation:spark 2s infinite;
+}
+
+.spark.one{
+    top:25%;
+    left:20%;
+}
+
+.spark.two{
+    top:35%;
+    right:20%;
+    animation-delay:1s;
+}
+
+@keyframes cartMove{
+
+    0%,100%{
+        transform:translateX(-50%);
+    }
+
+    50%{
+        transform:translateX(-42%);
+    }
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateX(-50%) translateY(0px);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(-12px);
+    }
+}
+
+@keyframes spark{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.4;
+    }
+
+    50%{
+        transform:scale(2);
+        opacity:1;
+    }
+}
+
+/* Heading */
+
+h1{
+
+    color:var(--white-color);
+
+    font-size:42px;
+
+    margin-bottom:18px;
+}
+
+/* Text */
+
+p{
+
+    color:rgba(255,255,255,.78);
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+}
+
+/* Notice */
+
+.notice{
+
+    background:rgba(95,179,162,.12);
+
+    border:1px solid rgba(143,211,200,.18);
+
+    color:var(--theme-ul-active-color);
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:30px;
+}
+
+/* Button */
+
+.btn{
+
+    display:inline-block;
+
+    background:var(--theme-light-active-color);
+
+    color:var(--white-color);
+
+    text-decoration:none;
+
+    padding:15px 36px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    background:var(--theme-green-color);
+}
+
+/* Contact */
+
+.contact{
+
+    margin-top:30px;
+
+    color:rgba(255,255,255,.75);
+
+    line-height:1.8;
+}
+
+.contact a{
+
+    color:var(--theme-gul-active-color);
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+/* Footer */
+
+.footer{
+
+    margin-top:35px;
+
+    color:rgba(255,255,255,.45);
+
+    font-size:14px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .container{
+        padding:45px 25px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    .cart{
+        font-size:75px;
+    }
+
+    .logo img{
+        width:210px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-circle one"></div>
+<div class="bg-circle two"></div>
+
+<div class="package-float one">📦</div>
+<div class="package-float two">📦</div>
+<div class="package-float three">📦</div>
+
+<div class="container">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        <img src="/public/logo.png" alt="MyMart Logo">
+    </div>
+
+    <!-- Animated Cart -->
+
+    <div class="cart-wrapper">
+
+        <div class="spark one"></div>
+        <div class="spark two"></div>
+
+        <div class="cart-box"></div>
+
+        <div class="cart">
+            🛒
+        </div>
+
+    </div>
+
+    <h1>Store Under Maintenance</h1>
+
+    <p>
+        We're currently upgrading MyMart to improve your shopping experience.
+        Our team is working behind the scenes to make everything faster,
+        smoother and better for you.
+    </p>
+
+    <div class="notice">
+        We'll be back shortly with exciting new improvements and fresh deals.
+    </div>
+
+    <a href="mailto:info@mymart.co.uk" class="btn">
+        Contact Support
+    </a>
+
+    <div class="contact">
+
+        Email:
+        <a href="mailto:info@mymart.co.uk">
+            info@mymart.co.uk
+        </a>
+
+        <br><br>
+
+        Phone:
+        <a href="tel:+443300432122">
+            +44 330 043 2122
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 MyMart. All Rights Reserved.
+    </div>
+
+</div>
+
+</body>
+</html>

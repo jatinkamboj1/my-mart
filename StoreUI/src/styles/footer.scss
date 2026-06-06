@@ -1,0 +1,460 @@
+/* NEWSLETTER */
+.footer-newsletter {
+  background: #4a6fa5;
+  color: #fff;
+  padding: 15px 0;
+
+  .newsletter-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+      padding: 8px;
+      border: none;
+      margin: 0 10px;
+      border-radius: 3px;
+    }
+
+    button {
+      background: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  }
+
+  .newsletter-note {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+/* MAIN FOOTER */
+.footer-main {
+  background: #f4f4f4;
+  padding: 40px 0 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.footer-col a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #dc143c;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding: 15px 0;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+.footer-payments {
+  float: right;
+  justify-self: flex-end;
+}
+  .footer-payments:before, .footer-payments:after {
+    content: "";
+    display: table;
+}
+.card-logos {
+    margin: 0 auto;
+    text-align: center;
+}
+.no-bullet {
+    padding: 0;
+    list-style: none;
+}
+.no-bullet, .bullet {
+    margin-left: 0;
+}
+
+.card-logos .card-logos__logo.lazyloaded, .card-logos .card-logos__logo.lazyload-off {
+    background-image: url(/assets/card-sprite-png.png);
+}
+
+.card-logos .card-logos__logo {
+    width: 44px;
+    height: 28px;
+    margin: 1rem .5rem;
+    background-repeat: no-repeat;
+    background-size: 44px;
+    display: inline-block;
+}
+
+.card-logos .card-logos__logo--mastercard {
+    background-position: 0 -27px
+}
+
+.card-logos .card-logos__logo--maestro {
+    background-position: 0 -60px
+}
+
+.card-logos .card-logos__logo--paypal {
+    background-position: 0 -91px
+}
+
+.card-logos .card-logos__logo--amazon {
+    background-position: 0 -195px
+}
+
+.card-logos .card-logos__logo--google {
+    background-position: 0 -112px
+}
+
+.card-logos .card-logos__logo--skrill {
+    background-position: 0 -169px
+}
+
+.card-logos .card-logos__logo--american-express {
+    background-position: 0 -140px
+}
+
+.card-logos .card-logos__logo--ukash {
+    background-position: 0 -308px
+}
+
+.card-logos .card-logos__logo--v12 {
+    background-position: 0 -280px
+}
+
+.card-logos .card-logos__logo--jcb {
+    background-position: 0 -252px
+}
+
+.card-logos .card-logos__logo--sagepay {
+    background-position: 0 -330px
+}
+
+.card-logos .card-logos__logo--pay4later {
+    background-position: 0 -224px
+}
+
+.card-logos .card-logos__logo--bacs {
+    background-position: 0 -351px
+}
+
+.card-logos .card-logos__logo--discover {
+    background-position: 0 -376px
+}
+
+.card-logos .card-logos__logo--visa {
+    background-position: 0 3px
+}
+
+.card-logos .card-logos__logo--sofort {
+    background-position: 0 -429px
+}
+
+.card-logos .card-logos__logo--giropay {
+    background-position: 0 -453px
+}
+
+.card-logos .card-logos__logo--sepa {
+    background-position: 0 -405px
+}
+
+.card-logos .card-logos__logo--klarna {
+    background-position: -10px -698px;
+    background-size: 64px
+}
+
+.card-logos .card-logos__logo--pcidss {
+    background-position: 0 -499px
+}
+
+.card-logos .card-logos__logo--diners {
+    background-position: 0 -525px
+}
+
+.card-logos .card-logos__logo--ideal {
+    background-position: 0 -555px
+}
+
+.card-logos .card-logos__logo--cartebleu {
+    background-position: 0 -583px
+}
+
+.card-logos .card-logos__logo--carteBancaire {
+    background-position: 0 -609px
+}
+
+.card-logos .card-logos__logo--applePay {
+    background-position: 0 -680px
+}
+
+.card-logos .card-logos__logo--klarnaLogo1 {
+    background-position: 0 -707px
+}
+
+.card-logos .card-logos__logo--klarnaLogo2 {
+    background-position: 0 -735px
+}
+
+.card-logos .card-logos__logo--divido {
+    background-position: 0 -763px
+}
+
+.card-logos .card-logos__logo--diners-text {
+    background-position: -2px -1159px;
+    background-size: 58px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--verifiedByVisa {
+    background-position: -2px -1042px;
+    background-size: 58px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--safekey {
+    background-position: -2px -1075px;
+    background-size: 58px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--securecode {
+    background-position: -2px -1103px;
+    background-size: 58px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--mada {
+    background-position: 0px -1133px;
+    background-size: 58px;
+    width: 60px
+}
+
+.card-logos .card-logos__logo--clearpay {
+    background-position: -4px -1289px;
+    background-size: 63px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--google-pay {
+    background-position: -10px -1446px;
+    background-size: 69px;
+    width: 46px
+}
+
+.card-logos .card-logos__logo--afterpay {
+    background-position: -4px -1349px;
+    background-size: 63px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--paypalinterest {
+    background-position: -4px -1371px;
+    background-size: 63px;
+    width: 55px
+}
+
+.card-logos .card-logos__logo--revoult {
+    background-position: -7px -1392px;
+    background-size: 63px;
+    width: 49px
+}
+
+.card-logos .card-logos__logo--paybylink {
+    background-position: -8px -1394px;
+    background-size: 62px;
+    width: 44px
+}
+
+.card-logos .card-logos__logo--novuna {
+    background-position: 0 -1426px;
+    background-size: 62px;
+    width: 60px
+}
+
+@media only screen and (max-width: 47.937em) {
+    .card-logos .card-logos__logo {
+        margin:0 0.375rem
+    }
+}
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.footer-newsletter-bar {
+  background: var(--theme-back-color); // exact blue tone
+  padding: 12px 0;
+  color: #fff;
+
+  .newsletter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* LEFT */
+  .newsletter-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+
+    .newsletter-text {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    svg {
+      color: #fff;
+    }
+  }
+
+  /* INPUT */
+  .newsletter-input {
+    display: flex;
+    align-items: center;
+    background: #e5e5e5;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-left: 10px;
+    flex: 1;
+    max-width: 400px;
+
+    input {
+      border: none;
+      padding: 8px 10px;
+      width: 100%;
+      font-size: 13px;
+      outline: none;
+      background: transparent;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+
+      svg {
+        color: #4f73a8;
+      }
+    }
+  }
+
+  /* RIGHT */
+  .newsletter-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+
+    a {
+      width: 32px;
+      height: 32px;
+      background: #6b6b6b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+
+      svg {
+        color: #fff;
+      }
+
+      &:hover {
+        background: var(--theme-light-active-color);
+      }
+    }
+  }
+
+  /* NOTE */
+  .newsletter-note {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 6px;
+    color: #dcdcdc;
+  }
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-newsletter-bar {
+
+    .newsletter-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .newsletter-left {
+      flex-wrap: wrap;
+    }
+
+    .newsletter-input {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .newsletter-right {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .newsletter-note {
+      text-align: left;
+      padding: 0 10px;
+    }
+  }
+}

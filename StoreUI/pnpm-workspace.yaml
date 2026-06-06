@@ -1,0 +1,17 @@
+# allowBuilds:
+#   '@parcel/watcher': set this to true or false
+#   core-js: set this to true or false
+#   unrs-resolver: set this to true or false
+
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  core-js: set this to true or false
+  unrs-resolver: set this to true or false
+onlyBuiltDependencies:
+  - "prisma"
+  - "@prisma/client"
+  - "@prisma/engines"
+  - "aws-sdk"
+  - "@parcel/watcher"
+  - "core-js"
+  - "unrs-resolver"

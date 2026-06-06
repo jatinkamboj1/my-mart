@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Discount" ALTER COLUMN "cartAmount" DROP NOT NULL,
+ALTER COLUMN "startDate" DROP NOT NULL,
+ALTER COLUMN "endDate" DROP NOT NULL;

@@ -1,0 +1,456 @@
+.page {
+  --primary: #4caf50;
+  --primary-dark: #1e4d4f;
+  --accent: #e9f6f3;
+  --text: #1a1a1a;
+  --text-light: #5b6665;
+  --border: #d7e8e4;
+  --white: #ffffff;
+  --section-max: 1200px;
+
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+  background: var(--white);
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: var(--section-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #1e4d4f,
+    #4caf50
+  );
+  color: white;
+  padding: 90px 0;
+}
+
+.heroContent {
+  max-width: 760px;
+}
+
+.heroTag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.heroTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  max-width: 650px;
+}
+
+/* CONTACT CARDS */
+
+.contactCards {
+  margin-top: -45px;
+  position: relative;
+  z-index: 2;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.contactCard {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.cardIcon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.contactCard h3 {
+  margin-bottom: 12px;
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-dark);
+}
+
+.contactCard p {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.contactCard a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* CONTACT SECTION */
+
+.contactSection {
+  padding: 80px 0;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contactInfo h2,
+.contactFormWrapper h2 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+.contactInfo > p {
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.infoGroup {
+  margin-bottom: 28px;
+}
+
+.infoGroup h4 {
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+  font-family: "Montserrat", sans-serif;
+}
+
+.infoGroup p,
+.infoGroup address {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-style: normal;
+}
+
+/* FORM */
+
+.contactFormWrapper {
+  background: #fafcfc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px;
+}
+
+.formIntro {
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.12);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.submitBtn {
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.supportNotice {
+  margin-top: 24px;
+  background: var(--accent);
+  border-left: 4px solid var(--primary);
+  padding: 18px;
+  border-radius: 8px;
+}
+
+.supportNotice h4 {
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.supportNotice p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* HELP SECTION */
+
+.helpSection {
+  background: #f8fbfb;
+  padding: 80px 0;
+}
+
+.helpHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.helpHeader h2 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.helpHeader p {
+  color: var(--text-light);
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.helpCard {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.helpCard h3 {
+  margin-bottom: 14px;
+  color: var(--primary-dark);
+  font-family: "Montserrat", sans-serif;
+}
+
+.helpCard p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* MAP */
+
+.mapSection {
+  padding: 80px 0;
+}
+
+.mapHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mapHeader h2 {
+  color: var(--primary-dark);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
+}
+
+.mapHeader p {
+  color: var(--text-light);
+}
+
+.mapWrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* BUSINESS */
+
+.businessSection {
+  padding-bottom: 80px;
+}
+
+.businessCard {
+  background: var(--primary-dark);
+  color: white;
+  padding: 50px;
+  border-radius: 16px;
+}
+
+.businessCard h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.businessGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.businessGrid h4 {
+  margin-bottom: 12px;
+}
+
+.businessGrid p {
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* CTA */
+
+.ctaSection {
+  padding-bottom: 100px;
+}
+
+.ctaBox {
+  text-align: center;
+  background: var(--accent);
+  padding: 60px 30px;
+  border-radius: 16px;
+}
+
+.ctaBox h2 {
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ctaBox p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.primaryBtn {
+  background: var(--primary);
+  color: white;
+}
+
+.secondaryBtn {
+  border: 1px solid var(--primary);
+  color: var(--primary-dark);
+  background: white;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .cardsGrid,
+  .helpGrid,
+  .businessGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 70px 0;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .cardsGrid,
+  .helpGrid,
+  .businessGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCards {
+    margin-top: 0;
+    padding-top: 40px;
+  }
+
+  .businessCard {
+    padding: 30px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .contactFormWrapper {
+    padding: 24px;
+  }
+
+  .contactCard,
+  .helpCard {
+    padding: 22px;
+  }
+}

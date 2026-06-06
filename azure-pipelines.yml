@@ -1,0 +1,33 @@
+trigger:
+- production
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Replace with your Access Token
+  
+steps:
+- script: |
+    git config --global user.email "ssl.code.secure@gmail.com"
+    git config --global user.name "Shubham Sharma"
+    # Clone the repository into a specific directory
+    git clone https://oauth2:$(GITLAB_TOKEN)@gitlab.com/ssl.code.secure/sclgroup.git sclgroup-repo
+    # Copy contents of StoreUI to sclgroup-repo
+    cd sclgroup-repo
+    git reset --hard origin/main
+    cd ..
+    cp -r ./StoreUI/* ./StoreUI/.env ./StoreUI/package.json ./sclgroup-repo/
+    cd sclgroup-repo
+    rm -rf StoreUI
+    # Fetch the latest changes from the remote
+    git fetch origin
+    # Checkout the main branch and merge any remote changes
+    git checkout main
+    git pull origin main
+    # Stage all changes
+    git add .
+    git commit -m "Automated commit from Azure Pipeline"
+    # Push changes to the remote repository
+    git push origin main
+  displayName: 'Build and Deploy to AWS Amplify'

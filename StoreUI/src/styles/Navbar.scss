@@ -1,0 +1,175 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--theme-dark-active-color);
+  padding-right: 15px;
+  padding-left: 15px;
+
+  &SubCategory {
+    right: calc(100% - 1px);
+    top: 0;
+    width: calc(100vw - 250px);
+    position: absolute;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    display: none;
+    z-index: 99999;
+    -webkit-transform: translatex(20px);
+    -ms-transform: translatex(20px);
+    transform: translatex(20px);
+    background-color: #f1f1f1;
+    color: black;
+
+    grid-template-columns: repeat(4, 25%);
+    padding: 10px 16px 20px 20px;
+
+    &ItemText {
+        color: #1e1e1e;
+        padding: 15px 15px 16px;
+        text-align: left;
+        &Bold {
+            font-weight: 600;
+        }
+        &:hover {
+            color: var(--theme-dark-active-color);
+        }
+    }
+  }
+
+  &Category {
+    top: calc(100% - 1px);
+    left: 0;
+    width: 220px;
+    position: absolute;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99999;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+    background-color: var(--theme-dark-active-color);
+    color: #fff;
+    
+    &Links {
+        border-top: 2px solid #969696;
+        &:first-of-type {
+            border: none;
+        }
+        &Text {
+            display: block;
+            font-weight: normal;
+            padding: 16px 15px;
+            position: relative;
+            text-decoration: none;
+            font-size: 13px;
+            color: #fff;
+        }
+        &:hover {
+            background-color: var(--theme-active-color);
+            .NavbarCategoryLinksText {
+                color: #000;
+                font-weight: 600;
+            }
+            .NavbarSubCategory {
+                display: grid;
+                -webkit-transform: translate(100%, 0);
+                -ms-transform: translate(100%, 0);
+                transform: translate(100%, 0);
+                right: 0;
+                min-height: -webkit-fill-available;
+            }
+        }
+    }
+  }
+
+  &Links {
+    display: flex;
+    align-items: center;
+  list-style: none;
+  position: relative;
+
+    &Item {
+        cursor: pointer;
+        &Text {
+            color: var(--theme-ul-active-color);
+            display: block;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        &:hover {
+            .NavbarLinksItemText {
+                color: var(--theme-ul-active-color);
+            }
+            color: white;
+            background-color: var(--theme-dark-active-color);
+            .NavbarCategory {
+                opacity: 1;
+                visibility: visible;
+                -webkit-transform: translate(0%, 0);
+                -ms-transform: translate(0%, 0);
+                transform: translate(0%, 0);
+                top: 40px;
+            }
+        }
+    }
+  }
+
+  &Icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &Link {
+        color: #5a5a5a;
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: #5a5a5a;
+            margin-right: 4px;
+        }
+        &:hover {
+            color: var(--theme-active-color);
+            svg {
+                fill: var(--theme-active-color);
+            }
+        }
+    }
+  }
+}
+
+.NavbarContainer {
+    display: flex;
+    flex-direction: column; // Stack items vertically
+    height: 10vh; // Full viewport height
+    
+    justify-content: space-between; // Push NavbarIcons to bottom
+  }
+  
+  .NavbarLinks {
+    flex-grow: 1; // Takes up available space
+  }
+  
+  .NavbarIcons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+@media (max-width: 1024px) { /* Adjust breakpoint as needed */
+    .desktop-only {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .desktop-only {
+      display: flex; /* Or your preferred display style */
+    }
+  }
+  

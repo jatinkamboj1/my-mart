@@ -1,0 +1,15 @@
+# allowBuilds:
+#   aws-sdk: false
+#   sharp: false
+packages:
+  - 'StoreUI'
+  - 'StoreService'
+
+onlyBuiltDependencies:
+  - prisma
+  - '@prisma/client'
+  - '@prisma/engines'
+  - aws-sdk
+  - '@parcel/watcher'
+  - core-js
+  - unrs-resolver

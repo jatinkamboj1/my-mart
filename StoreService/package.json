@@ -1,0 +1,42 @@
+{
+  "name": "storeservice",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx nodemon server.js",
+    "seed": "node prisma/seed.js",
+    "prisma:seed": "prisma db seed",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.5.1",
+    "@getbrevo/brevo": "^4.0.1",
+    "@prisma/client": "^6.4.1",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.5",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "dotenv-cli": "^8.0.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.10.0",
+    "prisma": "^6.4.1",
+    "react-phone-input-2": "^2.15.1",
+    "stripe": "^17.7.0"
+  }
+}
