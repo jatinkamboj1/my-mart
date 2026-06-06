@@ -15,7 +15,7 @@ const SmallBanner = () => {
     }
 
     useEffect(() => {
-        if (SmallBanner.length < 1 && !isLoaded) {
+        if (SmallBanner?.length < 1 && !isLoaded) {
             fetchSmallBanner();
         }
     }, [SmallBanner, isLoaded]);

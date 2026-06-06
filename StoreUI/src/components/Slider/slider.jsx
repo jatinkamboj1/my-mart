@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
+console.log("Slider component loaded");
 const Slider = (props) => {
   const {
     children,
@@ -185,25 +185,61 @@ const Slider = (props) => {
     );
   };
 
-  return (
-    <Carousel
-      keyBoardControl={true}
-      swipeable={true}
-      draggable={true}
-      renderButtonGroupOutside={true}
-      showDots={showDots}
-      arrows={arrows}
-      responsive={slides && responsive[slides]}
-      infinite={infinite}
-      autoPlay={autoPlay}
-      autoPlaySpeed={autoPlaySpeed}
-      transitionDuration={transitionDuration}
-      itemAriaLabel={itemAriaLabel}
-      customDot={CustomDotList && showDots && <CustomDot/>}
-    >
-      {children}
-    </Carousel>
-  )
+  // return (
+  //   <Carousel
+  //     keyBoardControl={true}
+  //     swipeable={true}
+  //     draggable={true}
+  //     renderButtonGroupOutside={true}
+  //     showDots={showDots}
+  //     arrows={arrows}
+  //     // responsive={slides && responsive[slides]}
+  //     responsive={responsive?.[slides] || responsive?.default}
+  //     infinite={infinite}
+  //     autoPlay={autoPlay}
+  //     autoPlaySpeed={autoPlaySpeed}
+  //     transitionDuration={transitionDuration}
+  //     itemAriaLabel={itemAriaLabel}
+  //     customDot={CustomDotList && showDots && <CustomDot/>}
+  //   >
+  //     {children}
+  //   </Carousel>
+  // )
+
+  console.log("slides =>", slides);
+console.log("responsive =>", responsive?.[slides]);
+console.log("children =>", children);
+const safeChildren = React.Children.toArray(children);
+
+if (safeChildren.length === 0) {
+  return null; // ya loading UI dikha sakte ho
+}
+
+return (
+  <Carousel
+    keyBoardControl={true}
+    swipeable={true}
+    draggable={true}
+    renderButtonGroupOutside={true}
+    showDots={showDots}
+    arrows={arrows}
+    responsive={
+      responsive?.[slides] || responsive["banner"]
+    }
+    infinite={infinite}
+    autoPlay={autoPlay}
+    autoPlaySpeed={autoPlaySpeed}
+    transitionDuration={transitionDuration}
+    itemAriaLabel={itemAriaLabel}
+    customDot={
+      Array.isArray(CustomDotList) && showDots
+        ? <CustomDot />
+        : null
+    }
+  >
+    {safeChildren}
+  </Carousel>
+);
 }
 
 export default Slider

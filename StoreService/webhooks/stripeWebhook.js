@@ -1,8 +1,8 @@
 const Stripe = require("stripe");
 const { handlePaymentSuccess, handlePaymentFailed, handleRefund, handleDispute } = require("../services/stripehooks");
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-const stripeWebhookKey = process.env.STRIPE_WEBHOOK_SECRET;
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// const stripeWebhookKey = process.env.STRIPE_WEBHOOK_SECRET;
 
 /* =====================================================
    STRIPE WEBHOOK

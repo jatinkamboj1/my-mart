@@ -17,7 +17,7 @@ const Slider_Section = () => {
     }
 
     useEffect(() => {
-        if (HomeBanner.length < 1 && !isLoaded) {
+        if (HomeBanner?.length < 1 && !isLoaded) {
             fetchHomeBanner();
         }
     }, [HomeBanner, isLoaded]);

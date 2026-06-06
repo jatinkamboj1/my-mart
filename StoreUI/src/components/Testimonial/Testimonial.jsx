@@ -14,7 +14,7 @@ export default function Testimonial() {
     }
 
     useEffect(() => {
-        if (testimonials.length < 1 && !isLoaded) {
+        if (testimonials?.length < 1 && !isLoaded) {
             fetchTestimonials();
         }
     }, [testimonials, isLoaded]);

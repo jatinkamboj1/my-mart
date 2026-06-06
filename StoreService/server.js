@@ -43,7 +43,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
-app.use("/apis", apiRoutes);
+app.use("/api", apiRoutes);
 
 // Error handler
 app.use((err, req, res, next) => {

@@ -161,90 +161,230 @@ router.post("/phone", validate(phoneAuthSchema), async (req, res) => {
 
 // Register with Email and Password
 
-router.post("/register", validate(registerSchema), async (req, res) => {
-  const { name, email, password, phone, status } = req.body;
+// router.post("/register", validate(registerSchema), async (req, res) => {
+//   const { name, email, password, phone, status } = req.body;
 
-  try {
-    // 1. Password validation
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+//   try {
+//     // 1. Password validation
+//     const passwordRegex =
+//       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
 
-    if (!passwordRegex.test(password)) {
-      return res.status(400).json({
-        error:
-          "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character",
-      });
-    }
+//     if (!passwordRegex.test(password)) {
+//       return res.status(400).json({
+//         error:
+//           "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character",
+//       });
+//     }
 
-    // 2. Check if email OR phone already exists
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        OR: [{ email }, { phone }],
-      },
-    });
+//     // 2. Check if email OR phone already exists
+//     const existingUser = await prisma.user.findFirst({
+//       where: {
+//         OR: [{ email }, { phone }],
+//       },
+//     });
 
-    if (existingUser) {
-      return res.status(400).json({
-        error: "User already exists with same email or phone number",
-      });
-    }
+//     if (existingUser) {
+//       return res.status(400).json({
+//         error: "User already exists with same email or phone number",
+//       });
+//     }
 
-    // 3. Generate OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//     // 3. Generate OTP
+//     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // 4. Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
+//     // 4. Hash password
+//     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 5. Transaction starts here
-    const result = await prisma.$transaction(async (tx) => {
-      // Create user
-      const user = await tx.user.create({
-        data: {
-          name,
-          email,
-          phone,
-          password: hashedPassword,
-          otp: status === "VERIFIED" ? null : otp,
-          status: status || "UNVERIFIED",
-          otpExpiry: new Date(Date.now() + 5 * 60 * 1000),
+//     // 5. Transaction starts here
+//     const result = await prisma.$transaction(async (tx) => {
+//       // Create user
+//       const user = await tx.user.create({
+//         data: {
+//           name,
+//           email,
+//           phone,
+//           password: hashedPassword,
+//           otp: status === "VERIFIED" ? null : otp,
+//           status: status || "UNVERIFIED",
+//           otpExpiry: new Date(Date.now() + 5 * 60 * 1000),
+//         },
+//       });
+
+//       // Send OTP (inside transaction logic)
+//       if (!status || status === "UNVERIFIED") {
+//         const emailSent = await sendEmailOTP(email, otp);
+
+//         // If your function doesn't return boolean, wrap it in try/catch
+//         if (!emailSent) {
+//           throw new Error("OTP email failed");
+//         }
+//       }
+
+//       return user;
+//     });
+
+//     // 6. Success response
+//     return res.status(200).json({
+//       message: "User registered successfully. OTP sent.",
+//       userId: result.id,
+//       email: result.email,
+//       phone: result.phone,
+//     });
+
+//   } catch (error) {
+//     console.log("error:", error);
+
+//     if (error.code === "P2002") {
+//       return res.status(400).json({
+//         error: "Email or phone already exists",
+//       });
+//     }
+
+//     return res.status(500).json({
+//       error: "Registration failed. Please try again.",
+//     });
+//   }
+// });
+
+router.post(
+  "/register",
+  validate(registerSchema),
+  async (req, res) => {
+    console.log("Register API Hit");
+
+    const { name, email, password, phone, status } = req.body;
+
+    console.log("Request Body:", req.body);
+
+    try {
+      // 1. Password validation
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+      console.log("Checking password validation...");
+
+      if (!passwordRegex.test(password)) {
+        console.log("Password validation failed");
+
+        return res.status(400).json({
+          error:
+            "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character",
+        });
+      }
+
+      console.log("Password validation passed");
+
+      // 2. Check existing user
+      console.log("Checking existing user...");
+
+      const existingUser = await prisma.user.findFirst({
+        where: {
+          OR: [{ email }, { phone }],
         },
       });
 
-      // Send OTP (inside transaction logic)
-      if (!status || status === "UNVERIFIED") {
-        const emailSent = await sendEmailOTP(email, otp);
+      console.log("Existing user result:", existingUser);
 
-        // If your function doesn't return boolean, wrap it in try/catch
-        if (!emailSent) {
-          throw new Error("OTP email failed");
-        }
+      if (existingUser) {
+        console.log("User already exists");
+
+        return res.status(400).json({
+          error: "User already exists with same email or phone number",
+        });
       }
 
-      return user;
-    });
+      // 3. Generate OTP
+      console.log("Generating OTP...");
 
-    // 6. Success response
-    return res.status(200).json({
-      message: "User registered successfully. OTP sent.",
-      userId: result.id,
-      email: result.email,
-      phone: result.phone,
-    });
+      const otp = Math.floor(
+        100000 + Math.random() * 900000
+      ).toString();
 
-  } catch (error) {
-    console.log("error:", error);
+      console.log("Generated OTP:", otp);
 
-    if (error.code === "P2002") {
-      return res.status(400).json({
-        error: "Email or phone already exists",
+      // 4. Hash password
+      console.log("Hashing password...");
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      console.log("Password hashed");
+
+      // 5. Transaction
+      console.log("Starting transaction...");
+
+      const result = await prisma.$transaction(async (tx) => {
+        console.log("Creating user in DB...");
+
+        const user = await tx.user.create({
+          data: {
+            name,
+            email,
+            phone,
+            password: hashedPassword,
+            otp: status === "VERIFIED" ? null : otp,
+            status: status || "UNVERIFIED",
+            otpExpiry: new Date(
+              Date.now() + 5 * 60 * 1000
+            ),
+          },
+        });
+
+        console.log("User created:", user);
+
+        // Send OTP
+        if (!status || status === "UNVERIFIED") {
+          console.log("Sending OTP email...");
+
+          const emailSent = await sendEmailOTP(
+            email,
+            otp
+          );
+
+          console.log("Email send result:", emailSent);
+
+          if (!emailSent) {
+            console.log("OTP email failed");
+            throw new Error("OTP email failed");
+          }
+        }
+
+        return user;
+      });
+
+      console.log("Registration successful");
+
+      return res.status(200).json({
+        message:
+          "User registered successfully. OTP sent.",
+        userId: result.id,
+        email: result.email,
+        phone: result.phone,
+      });
+    } catch (error) {
+      console.log(
+        "REGISTER ERROR FULL:",
+        error
+      );
+
+      console.log(
+        "ERROR MESSAGE:",
+        error.message
+      );
+
+      console.log("ERROR CODE:", error.code);
+
+      if (error.code === "P2002") {
+        return res.status(400).json({
+          error: "Email or phone already exists",
+        });
+      }
+
+      return res.status(500).json({
+        error: error.message || "Registration failed",
       });
     }
-
-    return res.status(500).json({
-      error: "Registration failed. Please try again.",
-    });
   }
-});
+);
 
 router.post("/resend-otp", validate(reOTPSchema), async (req, res) => {
   const { email,phone } = req.body;

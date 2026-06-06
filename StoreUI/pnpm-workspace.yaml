@@ -4,9 +4,9 @@
 #   unrs-resolver: set this to true or false
 
 allowBuilds:
-  '@parcel/watcher': set this to true or false
-  core-js: set this to true or false
-  unrs-resolver: set this to true or false
+  '@parcel/watcher': true
+  core-js: true
+  unrs-resolver: true
 onlyBuiltDependencies:
   - "prisma"
   - "@prisma/client"
