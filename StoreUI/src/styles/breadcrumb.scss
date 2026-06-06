@@ -28,7 +28,7 @@
     text-transform: capitalize;
   }
   .breadcrumb-wrap .breadcrumb .breadcrumb-item a:hover {
-    color: #c29958;
+    color: var(--theme-active-color);
   }
   .breadcrumb-wrap .breadcrumb .breadcrumb-item:before {
     color: #7e7e7e;
@@ -40,7 +40,7 @@
     display: none;
   }
   .breadcrumb-wrap .breadcrumb .breadcrumb-item.active {
-    color: #c29958;
+    color: var(--theme-active-color);
     font-size: 14px;
     font-weight: 400;
     text-transform: capitalize;

@@ -1,6 +1,6 @@
 /* NEWSLETTER */
 .footer-newsletter {
-  background: #4a6fa5;
+  background: var(--theme-active-color);
   color: #fff;
   padding: 15px 0;
 
@@ -66,7 +66,7 @@
 }
 
 .footer-col a:hover {
-  color: #dc143c;
+  color: var(--theme-active-color);
 }
 
 /* BOTTOM */
@@ -378,7 +378,7 @@
       cursor: pointer;
 
       svg {
-        color: #4f73a8;
+        color: var(--theme-active-color);
       }
     }
   }

@@ -33,7 +33,7 @@
 //     throw error;
 //   }
 // };
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 console.log("BREVO_SMTP_HOST:", process.env.BREVO_SMTP_HOST);
 
@@ -53,7 +53,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendEmail = async ({ subject, email, body }) => {
+const sendEmail = async ({ subject, email, body }) => {
   try {
     console.log("Sending email to:", email);
 
