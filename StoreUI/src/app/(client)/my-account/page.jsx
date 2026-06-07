@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { use, useEffect, useMemo, useState } from "react";
 import "@/styles/myAccount.scss";
 import "@/styles/sliders.scss";
@@ -18,8 +18,7 @@ import { IoMdClose } from "react-icons/io";
 import { userOrders } from "@/app/api/orders";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { createStripePaymentIntent } from "@/app/api/payments";
-import PaymentWrapper, { PaymentForm, stripePromise } from "@/components/Payments/payment";
+import PaymentWrapper, { PaymentForm } from "@/components/Payments/payment";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import validator from "validator";
@@ -271,45 +270,26 @@ const Orders = () => {
 
   
   /* ================= SUBMIT ================= */
-  const handleSubmit = async (paymentMethodId) => {
+  const handleSubmit = async () => {
     setIsProcessing(true);
 
     try {
-
-      const orderId = selectedOrder.id;
-
-      /* ===============================
-         CREATE PAYMENT INTENT
-      =============================== */
-      const { clientSecret } = await createStripePaymentIntent(orderId, token);
-
-      /* ===============================
-         CONFIRM CARD PAYMENT
-      =============================== */
-      const stripe = await stripePromise;
-
-      const { error, paymentIntent } =
-        await stripe.confirmCardPayment(clientSecret, {
-          payment_method: paymentMethodId,
-        });
-
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      /* ===============================
-         SUCCESS
-      =============================== */
-      if (paymentIntent.status === "succeeded") {
-        setIsPaymentDone(true);
-        toast.success("Payment successful!");
-      }
+      return {
+        orderId: selectedOrder.id,
+        orderNumber: selectedOrder.orderNumber,
+      };
     } catch (err) {
       console.error("Checkout error:", err);
       toast.error(err.message || "Payment failed");
-    } finally {
       setIsProcessing(false);
+      return false;
     }
+  };
+
+  const handlePaymentSuccess = async () => {
+    setIsPaymentDone(true);
+    await fetchUserOrders(token, pageDetails.currentPage);
+    setIsProcessing(false);
   };
 
   return (
@@ -368,7 +348,7 @@ const Orders = () => {
                       {order.status}
                     </span>
 
-                    {/* 👁 Eye icon instead of cancel button */}
+                    {/* ðŸ‘ Eye icon instead of cancel button */}
                     <i
                       className="fa fa-eye"
                       style={{
@@ -387,7 +367,7 @@ const Orders = () => {
                   <div style={{ fontSize: "13px", lineHeight: "1.6" }}>
                     {order.products.slice(0, 2).map((item, idx) => (
                       <div key={idx} style={{ marginBottom: "4px" }}>
-                        • {item.name || 'Product'}
+                        â€¢ {item.name || 'Product'}
                       </div>
                     ))}
                     {order.products.length > 2 && (
@@ -425,7 +405,7 @@ const Orders = () => {
                         TOTAL AMOUNT
                       </div>
                       <div style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}>
-                        £{Number(order.summary["Total Amount"]).toFixed(2)}
+                        ₹{Number(order.summary["Total Amount"]).toFixed(2)}
                       </div>
                     </div>
                   </div>
@@ -550,7 +530,7 @@ const Orders = () => {
                         </span>
                       </div>
 
-                      {/* ✅ Show cancel only if pending and not expired */}
+                      {/* âœ… Show cancel only if pending and not expired */}
                       {canCancelOrder(selectedOrder) && (
                         <button
                           onClick={(e) => {
@@ -587,8 +567,8 @@ const Orders = () => {
                                     </h4>
                                     <div className="orderItem-price" style={{ fontSize: "13px", color: "#6b7280" }}>
                                       <span>Qty: {item.quantity}</span>
-                                      <span> × </span>
-                                      <span>£{item.price}</span>
+                                      <span> Ã— </span>
+                                      <span>₹{item.price}</span>
                                     </div>
                                   </div>
                                 </div>
@@ -608,7 +588,7 @@ const Orders = () => {
                               <div className="d-flex justify-content-between mb-2">
                                 <span className="text-muted">Sub Total</span>
                                 <span className="fw-semibold">
-                                  £{Number(selectedOrder.summary["Sub Total"]).toFixed(2)}
+                                  ₹{Number(selectedOrder.summary["Sub Total"]).toFixed(2)}
                                 </span>
                               </div>
 
@@ -625,7 +605,7 @@ const Orders = () => {
                                       )}
                                     </span>
                                     <span className="fw-semibold text-danger">
-                                      - £{Number(coupon.amount).toFixed(2)}
+                                      - ₹{Number(coupon.amount).toFixed(2)}
                                     </span>
                                   </div>
                                 ))}
@@ -641,7 +621,7 @@ const Orders = () => {
                                 >
                                   {Number(selectedOrder.summary["Delivery Charges"]) === 0
                                     ? "FREE"
-                                    : `£${Number(selectedOrder.summary["Delivery Charges"]).toFixed(2)}`}
+                                    : `₹${Number(selectedOrder.summary["Delivery Charges"]).toFixed(2)}`}
                                 </span>
                               </div>
 
@@ -656,7 +636,7 @@ const Orders = () => {
                                       {charge.name}
                                     </span>
                                     <span className="fw-semibold">
-                                      £{Number(charge.amount).toFixed(2)}
+                                      ₹{Number(charge.amount).toFixed(2)}
                                     </span>
                                   </div>
                                 ))}
@@ -665,7 +645,7 @@ const Orders = () => {
                               <div className="d-flex justify-content-between fw-bold border-top pt-2 mt-2 fs-5">
                                 <span>Total Amount</span>
                                 <span className="text-dark">
-                                  £{Number(selectedOrder.summary["Total Amount"]).toFixed(2)}
+                                  ₹{Number(selectedOrder.summary["Total Amount"]).toFixed(2)}
                                 </span>
                               </div>
                             </div>
@@ -721,7 +701,7 @@ const Orders = () => {
                           </div>
 
                           <div className="col-12 col-md-6 mb-2 px-0">
-                            {(isPaymentDone || (selectedOrder.paymentType === "ONLINE" && selectedOrder.status === "PENDING")) ?
+                            {(!isPaymentDone && !selectedOrder.isPaid && selectedOrder.paymentType === "ONLINE" && selectedOrder.status === "PENDING") ?
                               <div className="priceDetailsContainer p-3 h-100">
                                 <h4 className="mb-3" style={{ fontSize: "16px", fontWeight: "600" }}>
                                   Create Payment
@@ -730,7 +710,16 @@ const Orders = () => {
 
                                   <PaymentForm
                                     handlePayment={handleSubmit}
+                                    token={token}
+                                    amount={selectedOrder.summary?.["Total Amount"] || selectedOrder.actualAmount}
+                                    customer={{
+                                      name: selectedOrder.userName,
+                                      email: selectedOrder.email,
+                                      contact: selectedOrder.mobileNumber,
+                                    }}
+                                    onSuccess={handlePaymentSuccess}
                                     isProcessing={isProcessing}
+                                    setProcessing={setIsProcessing}
                                   />
                                 </div>
                               </div> :

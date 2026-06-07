@@ -1,62 +1,109 @@
 "use client";
+
 import "@/styles/checkout.scss";
 import "@/styles/cartPage.scss";
-
-import { loadStripe } from "@stripe/stripe-js";
-import {
-Elements,
-  CardElement,
-  useStripe,
-  useElements
-} from "@stripe/react-stripe-js";
-
-export const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+import { createRazorpayOrder, verifyRazorpayPayment } from "@/app/api/payments";
+import { toast } from "react-hot-toast";
 
 /* ================= PAYMENT FORM ================= */
-export const PaymentForm = ({ handlePayment, isProcessing }) => {
-  const stripe = useStripe();
-  const elements = useElements();
+export const PaymentForm = ({
+  orderId,
+  token,
+  amount,
+  customer,
+  handlePayment,
+  onSuccess,
+  isProcessing,
+  setProcessing,
+}) => {
+  const updateProcessing = setProcessing || (() => {});
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!stripe || !elements) return;
+  const handleRazorpayPayment = async () => {
+    try {
+      updateProcessing(true);
 
-    const cardElement = elements.getElement(CardElement);
+      const preparedOrder = handlePayment ? await handlePayment() : { orderId };
+      const payableOrderId = preparedOrder?.orderId || orderId;
 
-    const { error, paymentMethod } =
-      await stripe.createPaymentMethod({
-        type: "card",
-        card: cardElement
+      if (!payableOrderId) {
+        throw new Error("Order creation failed");
+      }
+
+      if (!window.Razorpay) {
+        throw new Error("Razorpay checkout script is not loaded");
+      }
+
+      const data = await createRazorpayOrder(payableOrderId, token);
+
+      if (!data?.orderId) {
+        throw new Error("Failed to create Razorpay order");
+      }
+
+      const options = {
+        key: data.key,
+        amount: data.amount,
+        currency: data.currency,
+        name: "MY MART",
+        description: "Order Payment",
+        order_id: data.orderId,
+        prefill: {
+          name: customer?.name || "",
+          email: customer?.email || "",
+          contact: customer?.contact || "",
+        },
+        handler: async (response) => {
+          const verified = await verifyRazorpayPayment(
+            {
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_signature: response.razorpay_signature,
+            },
+            token
+          );
+
+          toast.success("Payment successful!");
+          await onSuccess?.({
+            ...verified,
+            orderId: payableOrderId,
+            orderNumber: preparedOrder?.orderNumber,
+          });
+        },
+        modal: {
+          ondismiss: () => {
+            updateProcessing(false);
+          },
+        },
+        theme: {
+          color: "#111111",
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on("payment.failed", (response) => {
+        toast.error(response?.error?.description || "Payment failed");
+        updateProcessing(false);
       });
-
-    if (error) {
-      toast.error(error.message);
-      return;
+      rzp.open();
+    } catch (error) {
+      console.error("Razorpay payment error:", error);
+      toast.error(error.message || "Payment failed");
+      updateProcessing(false);
     }
-    
-    handlePayment(paymentMethod.id);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <CardElement />
-      </div>
-      <button
-        type="submit"
-        disabled={isProcessing}
-        className="btn btn-cart2 w-100"
-      >
-        {isProcessing ? "Processing..." : "Pay and Place Order"}
-      </button>
-    </form>
+    <button
+      type="button"
+      onClick={handleRazorpayPayment}
+      disabled={isProcessing || !token || Number(amount || 0) <= 0}
+      className="btn btn-cart2 w-100"
+    >
+      {isProcessing ? "Processing..." : "Pay and Place Order"}
+    </button>
   );
 };
 
-export default function PaymentWrapper({children}) {
-  return (
-    <Elements stripe={stripePromise}>
-      {children}
-    </Elements>
-  );
+/* ================= WRAPPER ================= */
+export default function PaymentWrapper({ children }) {
+  return <>{children}</>;
 }

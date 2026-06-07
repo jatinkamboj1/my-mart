@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
@@ -95,7 +95,7 @@ const Page = () => {
         </div>
 
         <div className="mb-4">
-          <label className="form-label">Fee Amount (£)</label>
+          <label className="form-label">Fee Amount (₹)</label>
           <input
             type="number"
             className="form-control"

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { fetchProductBySlug, fetchRelativeProducts } from "@/app/api/products";
 import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import ProductCard from "@/components/ProductCard/productCard";
@@ -39,19 +39,19 @@ const resolveBulkPrice = (bulkPrices = [], qty) => {
 
 const resolveFinalPrice = ({ product, variant, qty }) => {
 
-    // 1️⃣ Variant bulk price
+    // 1ï¸âƒ₹ Variant bulk price
     if (variant?.bulkPrices?.length) {
         const bulk = resolveBulkPrice(variant.bulkPrices, qty);
         if (bulk) return bulk;
     }
 
-    // 2️⃣ Product bulk price
+    // 2ï¸âƒ₹ Product bulk price
     if (product?.bulkPrices?.length) {
         const bulk = resolveBulkPrice(product.bulkPrices, qty);
         if (bulk) return bulk;
     }
 
-    // 3️⃣ Variant normal price
+    // 3ï¸âƒ₹ Variant normal price
     if (variant) {
         return {
             price: variant.price ?? 0,
@@ -59,7 +59,7 @@ const resolveFinalPrice = ({ product, variant, qty }) => {
         };
     }
 
-    // 4️⃣ Product normal price
+    // 4ï¸âƒ₹ Product normal price
     return {
         price: product?.price ?? 0,
         discountedPrice: product?.discountedPrice ?? null,
@@ -96,7 +96,7 @@ export default function Product() {
     const [selectedVariant, setSelectedVariant] = useState(null);
     const [bulkSlabs, setBulkSlabs] = useState([]);
 
-    // ✅ finalPrice is now an OBJECT
+    // âœ… finalPrice is now an OBJECT
     const [finalPrice, setFinalPrice] = useState({
         price: 0,
         discountedPrice: null,
@@ -289,15 +289,15 @@ export default function Product() {
                                                 {finalPrice.discountedPrice ? (
                                                     <>
                                                         <span className="price-regular">
-                                                            £{finalPrice.discountedPrice} <span className="price-regular-vat">(Ex. VAT)</span>
+                                                            ₹{finalPrice.discountedPrice} <span className="price-regular-vat">(Ex. VAT)</span>
                                                         </span>
                                                         <span className="price-old">
-                                                            <del>£{finalPrice.price} <span className="price-old-vat">(Ex. VAT)</span></del>
+                                                            <del>₹{finalPrice.price} <span className="price-old-vat">(Ex. VAT)</span></del>
                                                         </span>
                                                     </>
                                                 ) : (
                                                     <span className="price-regular">
-                                                        £{finalPrice.price} <span className="price-regular-vat">(Ex. VAT)</span>
+                                                        ₹{finalPrice.price} <span className="price-regular-vat">(Ex. VAT)</span>
                                                     </span>
                                                 )}
                                             </div>
@@ -355,7 +355,7 @@ export default function Product() {
                                                                                     : `${bp.minQuantity}+`}
                                                                             </td>
                                                                             <td className="text-end">
-                                                                                £{(bp.discountedPrice ?? bp.price)}
+                                                                                ₹{(bp.discountedPrice ?? bp.price)}
                                                                             </td>
                                                                         </tr>
                                                                     );

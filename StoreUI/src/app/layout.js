@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import Providers from "@/utils/Providers";
 import SessionProvider from "@/utils/SessionProvider";
 import { ReactQueryClientProvider } from "@/utils/providers/ReactQueryProvider";
+import Script from "next/script";
 import "./globals.css";
 import "@/styles/bootstrap.css";
 import "@/styles/pe-icon-7-stroke.css";
@@ -69,6 +70,10 @@ export default async function RootLayout({ children }) {
             </Providers>
           </SessionProvider>
         </ReactQueryClientProvider>
+        <Script
+  src="https://checkout.razorpay.com/v1/checkout.js"
+  strategy="afterInteractive"
+/>
       </body>
     </html>
   );

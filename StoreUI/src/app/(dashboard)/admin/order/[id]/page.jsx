@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
@@ -217,7 +217,7 @@ const Page = () => {
             <div className="sa-page-meta__item">
               {order?.products?.length} items
             </div>
-            <div className="sa-page-meta__item">Total £{subTotal}</div>
+            <div className="sa-page-meta__item">Total ₹{subTotal}</div>
             <div className="sa-page-meta__item d-flex align-items-center fs-6">
               <span className="badge badge-sa-success me-2">
                 {order.isPaid ? "Paid" : "Pending"}
@@ -304,7 +304,7 @@ const Page = () => {
                           </td>
                           <td className="text-end">
                             <div className="sa-price">
-                              <span className="sa-price__symbol">£</span>
+                              <span className="sa-price__symbol">₹</span>
                               <span className="sa-price__integer">
                                 {item.price || 0}
                               </span>
@@ -313,7 +313,7 @@ const Page = () => {
                           <td className="text-center" style={{ textWrapMode: "nowrap" }}>x {item.quantity}</td>
                           <td className="text-end">
                             <div className="sa-price">
-                              <span className="sa-price__symbol">£</span>
+                              <span className="sa-price__symbol">₹</span>
                               <span className="sa-price__integer">
                                 {Number(item.price || 0) * item.quantity}
                               </span>
@@ -328,7 +328,7 @@ const Page = () => {
                       <td colSpan="3">Product Price</td>
                       <td className="text-end">
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {Number(order?.summary["Sub Total"] || 0).toFixed(2)}
                           </span>
@@ -347,7 +347,7 @@ const Page = () => {
                             </span>
                           ) : (
                             <>
-                              <span className="sa-price__symbol">£</span>
+                              <span className="sa-price__symbol">₹</span>
                               <span className="sa-price__integer">
                                 {Number(order?.summary["Delivery Charges"]).toFixed(2)}
                               </span>
@@ -365,7 +365,7 @@ const Page = () => {
                         </td>
                         <td className="text-end">
                           <div className="sa-price">
-                            <span className="sa-price__symbol">£</span>
+                            <span className="sa-price__symbol">₹</span>
                             <span className="sa-price__integer">
                               {Number(charge.amount).toFixed(2)}
                             </span>
@@ -390,7 +390,7 @@ const Page = () => {
                         <td className="text-end">
                           <div className="sa-price">
                             <span className="sa-price__integer text-danger fw-semibold">
-                              - £{Number(coupon.amount).toFixed(2)}
+                              - ₹{Number(coupon.amount).toFixed(2)}
                             </span>
                           </div>
                         </td>
@@ -404,7 +404,7 @@ const Page = () => {
                       <td colSpan="3">Total</td>
                       <td className="text-end">
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {Number(order?.summary["Total Amount"]).toFixed(2)}
                           </span>
@@ -466,7 +466,7 @@ const Page = () => {
                         <tr>
                           <td colSpan="3">Amount</td>
                           <td className="text-end">
-                            £{Number(payment.amount).toFixed(2)}
+                            ₹{Number(payment.amount).toFixed(2)}
                           </td>
                         </tr>
 
@@ -490,7 +490,7 @@ const Page = () => {
                         <tr>
                           <td colSpan="3">Amount Captured</td>
                           <td className="text-end">
-                            £{Number(payment.amountCaptured || 0).toFixed(2)}
+                            ₹{Number(payment.amountCaptured || 0).toFixed(2)}
                           </td>
                         </tr>
 
@@ -499,7 +499,7 @@ const Page = () => {
                           <tr>
                             <td colSpan="3">Amount Refunded</td>
                             <td className="text-end text-danger">
-                              - £{Number(payment.amountRefunded).toFixed(2)}
+                              - ₹{Number(payment.amountRefunded).toFixed(2)}
                             </td>
                           </tr>
                         )}

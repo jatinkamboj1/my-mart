@@ -1,13 +1,14 @@
 const express = require("express");
 const { royalMailWebhook } = require("./royalMailWebhook");
-const { stripeWebhook } = require("./stripeWebhook");
+const { handleRazorpayWebhook } = require("./stripeWebhook");
 
 const router = express.Router();
 
 router.post("/royal-mail", royalMailWebhook);
-router.post("/stripe", express.raw({ type: "application/json" }), stripeWebhook);
+router.post("/razorpay", express.raw({ type: "application/json" }), handleRazorpayWebhook);
+router.post("/stripe", express.raw({ type: "application/json" }), handleRazorpayWebhook);
 
 
 module.exports = router;
 
-// stripe listen --forward-to localhost:8080/webhooks/stripe
+// Razorpay webhook URL: /webhooks/razorpay

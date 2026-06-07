@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
@@ -137,7 +137,7 @@ const Page = () => {
                       <tr key={`shipping-fee-${index}`}>
                         <td>{item.zone}</td>
                         <td>{item.deliveryType?.name}</td>
-                        <td>£{item.feeAmount}</td>
+                        <td>₹{item.feeAmount}</td>
                         <td>{item.minOrderValue || "-"}</td>
                         <td>{item.maxOrderValue || "-"}</td>
                         <td>

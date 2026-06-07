@@ -11,8 +11,7 @@ const createAdmin = async () => {
       name: "Admin",
       email: "admin@gmail.com",
       phone: "9876543210",
-      password: "Admin@123",
-    };
+         password: "Admin@123"};
 
     // Check if admin already exists
     const existingAdmin = await prisma.user.findUnique({

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
                     <tr>
                         <td style="padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb;">
                             <div style="width: 60px; height: 60px; background-color: #1f2937; border-radius: 50%; margin: 0 auto 20px; display: inline-flex; align-items: center; justify-content: center;">
-                                <span style="color: #ffffff; font-size: 30px;">🛒</span>
+                                <span style="color: #ffffff; font-size: 30px;">ðŸ›’</span>
                             </div>
                             <h1 style="margin: 0 0 10px; font-size: 24px; color: #1f2937;">Purchase Confirmation</h1>
                             <p style="margin: 0 0 5px; color: #6b7280; font-size: 14px;">Thank you for your order, <strong>{{userName}}</strong>.</p>
@@ -49,7 +49,7 @@
                                         <p style="margin: 0; color: #9ca3af; font-size: 13px;">Quantity: {{quantity}}</p>
                                     </td>
                                     <td style="text-align: right; vertical-align: top; white-space: nowrap;">
-                                        <strong style="font-size: 16px; color: #1f2937;">£{{price}}</strong>
+                                        <strong style="font-size: 16px; color: #1f2937;">₹{{price}}</strong>
                                     </td>
                                 </tr>
                             </table>
@@ -64,12 +64,12 @@
                             <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f9fafb; border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb;">
                                 <tr>
                                     <td colspan="2" style="padding-bottom: 15px; border-bottom: 2px solid #e5e7eb;">
-                                        <h2 style="margin: 0; font-size: 18px; color: #1f2937;">🛒 Order Summary</h2>
+                                        <h2 style="margin: 0; font-size: 18px; color: #1f2937;">ðŸ›’ Order Summary</h2>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 10px 0; color: #6b7280; font-size: 14px;">Product Price</td>
-                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #1f2937; font-size: 14px;">£{{subTotal}}</td>
+                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #1f2937; font-size: 14px;">₹{{subTotal}}</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 10px 0; color: #6b7280; font-size: 14px;">Shipping Charges</td>
@@ -77,7 +77,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 10px 0; color: #6b7280; font-size: 14px;">Subtotal</td>
-                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #1f2937; font-size: 14px;">£{{total}}</td>
+                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #1f2937; font-size: 14px;">₹{{total}}</td>
                                 </tr>
                                 <!-- Show this row only if discount exists -->
                                 <tr>
@@ -85,12 +85,12 @@
                                         <span style="color: #6b7280; font-size: 14px;">Total Discount</span><br>
                                         <span style="color: #10b981; font-size: 12px;">Code: <strong>{{discountCode}}</strong></span>
                                     </td>
-                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #ef4444; font-size: 14px; border-top: 1px solid #e5e7eb;">- £{{discountPrice}}</td>
+                                    <td style="padding: 10px 0; text-align: right; font-weight: 600; color: #ef4444; font-size: 14px; border-top: 1px solid #e5e7eb;">- ₹{{discountPrice}}</td>
                                 </tr>
                                 <!-- End discount row -->
                                 <tr>
                                     <td style="padding: 15px 0 0; border-top: 2px solid #1f2937; font-size: 18px; font-weight: bold; color: #1f2937;">Total Amount</td>
-                                    <td style="padding: 15px 0 0; text-align: right; font-size: 18px; font-weight: bold; color: #1f2937; border-top: 2px solid #1f2937;">£{{actualAmount}}</td>
+                                    <td style="padding: 15px 0 0; text-align: right; font-size: 18px; font-weight: bold; color: #1f2937; border-top: 2px solid #1f2937;">₹{{actualAmount}}</td>
                                 </tr>
                             </table>
                         </td>
@@ -104,7 +104,7 @@
                                     <td style="width: 50%; padding-right: 10px; vertical-align: top;">
                                         <!-- Shipping Address -->
                                         <div style="background-color: #f9fafb; border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb; height: 100%;">
-                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">🚚 Shipping Address</h3>
+                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">ðŸšš Shipping Address</h3>
                                             <p style="margin: 0 0 5px; font-weight: 600; color: #1f2937; font-size: 14px;">{{userName}}</p>
                                             <p style="margin: 0 0 3px; color: #6b7280; font-size: 13px;">{{shippingStreet}}</p>
                                             <p style="margin: 0 0 3px; color: #6b7280; font-size: 13px;">{{shippingCity}}, {{shippingState}}</p>
@@ -115,7 +115,7 @@
                                     <td style="width: 50%; padding-left: 10px; vertical-align: top;">
                                         <!-- Billing Address -->
                                         <div style="background-color: #f9fafb; border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb; height: 100%;">
-                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">📍 Billing Address</h3>
+                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">ðŸ“ Billing Address</h3>
                                             <p style="margin: 0 0 5px; font-weight: 600; color: #1f2937; font-size: 14px;">{{userName}}</p>
                                             <p style="margin: 0 0 3px; color: #6b7280; font-size: 13px;">{{billingStreet}}</p>
                                             <p style="margin: 0 0 3px; color: #6b7280; font-size: 13px;">{{billingCity}}, {{billingState}}</p>
@@ -160,14 +160,14 @@
                                     <td style="width: 50%; padding-right: 10px; vertical-align: top;">
                                         <!-- Customer Notes -->
                                         <div style="background-color: #f9fafb; border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb;">
-                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">📝 Customer Notes</h3>
+                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">ðŸ“ Customer Notes</h3>
                                             <p style="margin: 0; color: #6b7280; font-size: 13px; background-color: #ffffff; padding: 12px; border-radius: 6px; min-height: 60px;">{{customerRemarks}}</p>
                                         </div>
                                     </td>
                                     <td style="width: 50%; padding-left: 10px; vertical-align: top;">
                                         <!-- Vendor Remarks -->
                                         <div style="background-color: #f9fafb; border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb;">
-                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">📝 Vendor Remarks</h3>
+                                            <h3 style="margin: 0 0 15px; font-size: 16px; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">ðŸ“ Vendor Remarks</h3>
                                             <p style="margin: 0; color: #6b7280; font-size: 13px; background-color: #ffffff; padding: 12px; border-radius: 6px; min-height: 60px;">{{vendorRemarks}}</p>
                                         </div>
                                     </td>
@@ -183,7 +183,7 @@
                             <p style="margin: 0 0 15px; color: #1f2937; font-size: 14px; font-weight: 600;">
                                 <a href="mailto:{{supportEmail}}" style="color: #1f2937; text-decoration: none;">{{supportEmail}}</a>
                             </p>
-                            <p style="margin: 0; color: #9ca3af; font-size: 12px;">© 2025 Your Company Name. All rights reserved.</p>
+                            <p style="margin: 0; color: #9ca3af; font-size: 12px;">Â© 2025 Your Company Name. All rights reserved.</p>
                         </td>
                     </tr>
 

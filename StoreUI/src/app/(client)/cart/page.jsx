@@ -1,4 +1,4 @@
-
+﻿
 "use client";
 import React, { useEffect, useState } from "react";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
@@ -123,7 +123,7 @@ const Page = () => {
                     <p className="productDescription">{cart_item.brandName}</p>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                       <p className="stockStatus">{cart_item.stock > 0 ? "In Stock" : "Out of Stock"}</p>
-                      <p className="productPrice d-block d-md-none">£{(item?.discountedPrice ?? item.unitPrice)} (Ex. VAT)</p>
+                      <p className="productPrice d-block d-md-none">₹{(item?.discountedPrice ?? item.unitPrice)} (Ex. VAT)</p>
                     </div>
                     {cart_item?.variantAttributes && cart_item.variantAttributes.map((item, index) => {
                       // Capitalize the first letter of the 'name'
@@ -158,19 +158,19 @@ const Page = () => {
                       {item?.discountedPrice ? (
                         <>
                           <span className="price-old" style={{ marginInlineEnd: 8 }}>
-                            <del>£{Number(item.unitPrice).toFixed(2)} (Ex. VAT)</del>
+                            <del>₹{Number(item.unitPrice).toFixed(2)} (Ex. VAT)</del>
                           </span>
                           <span className="productPrice">
-                            £{Number(item.discountedPrice).toFixed(2)} (Ex. VAT)
+                            ₹{Number(item.discountedPrice).toFixed(2)} (Ex. VAT)
                           </span>
                         </>
                       ) : (
                         <span className="productPrice">
-                          £{Number(item.unitPrice).toFixed(2)} (Ex. VAT)
+                          ₹{Number(item.unitPrice).toFixed(2)} (Ex. VAT)
                         </span>
                       )}
                     </div>
-                    {/* <p className="productPrice">£{(item.discountedPrice ?? item.unitPrice)} (Ex. VAT)</p> */}
+                    {/* <p className="productPrice">₹{(item.discountedPrice ?? item.unitPrice)} (Ex. VAT)</p> */}
                     <button className="removeButton" onClick={() => handleRemove(item.id)}>
                       <FaTrashAlt />
                       <span>Remove </span>
@@ -189,26 +189,26 @@ const Page = () => {
             <div className="priceDetailsContent">
               <div className="priceRow">
                 <span>Price ({totalItems} items)</span>
-                <span>£{Number(totalPrice).toFixed(2)} (Ex. VAT)</span>
+                <span>₹{Number(totalPrice).toFixed(2)} (Ex. VAT)</span>
               </div>
               <div className="priceRow">
                 <span>Discount</span>
-                <span> £{Number(disPrice).toFixed(2)} (Ex. VAT)</span>
+                <span> ₹{Number(disPrice).toFixed(2)} (Ex. VAT)</span>
               </div>
               {chargesResult.charges?.length > 0 &&
                 chargesResult.charges.map((charge, index) => (
                   <div className="priceRow" key={`charge-${index}`}>
                     <span>{charge.name}</span>
-                    <span>£{Number(charge.amount).toFixed(2)}</span>
+                    <span>₹{Number(charge.amount).toFixed(2)}</span>
                   </div>
                 ))}
               <div className="totalAmountRow">
                 <span>Total Amount</span>
-                <span>£{Number(totalDisPrice).toFixed(2)} (Inc. VAT)</span>
+                <span>₹{Number(totalDisPrice).toFixed(2)} (Inc. VAT)</span>
               </div>
             </div>
             <p className="savingsMessage">
-              You will save £{Number(disPrice).toFixed(2)} on this order
+              You will save ₹{Number(disPrice).toFixed(2)} on this order
             </p>
             {cartItems.length > 0 && (<a href="/checkout" className="btn btn-cart2 w-100">Proceed to Checkout</a>)}
           </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import "@/styles/productCard.scss";
 import "@/styles/pagination.scss";
 import "@/styles/sidebar.scss";
@@ -255,8 +255,8 @@ export default function Category() {
                                                         <div className="price-range-wrap">
                                                             <div className="price-range">
                                                                 <div className="price-input">
-                                                                    <span>Min: £{minPrice}</span>
-                                                                    <span style={{ marginInlineStart: 30 }}>Max: £{maxPrice}</span>
+                                                                    <span>Min: ₹{minPrice}</span>
+                                                                    <span style={{ marginInlineStart: 30 }}>Max: ₹{maxPrice}</span>
                                                                 </div>
                                                                 <RangeSlider value={[minPrice, maxPrice]} min={category?.filterPrice.min} max={category?.filterPrice.max} onInput={(e) => { handleDrage(e); }} />
                                                             </div>

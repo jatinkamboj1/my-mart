@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
@@ -117,7 +117,7 @@ const Page = () => {
       </div>
 
       <div className="card">
-        {/* 🔹 Improved Filter UI */}
+        {/* ðŸ”¹ Improved Filter UI */}
         <div className="p-4 border-bottom bg-light">
           <div className="row g-3 align-items-end">
 
@@ -279,7 +279,7 @@ const Page = () => {
                       <td>{`${item.products.length} items`}</td>
                       <td>
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {item.actualAmount}
                           </span>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
@@ -519,7 +519,7 @@ const Page = () => {
                       Average Order Value
                     </dt>
                     <dd className="fs-exact-13 text-muted mb-0 mt-1">
-                      £{parseFloat(ordersAvg).toFixed(2) || 0}
+                      ₹{parseFloat(ordersAvg).toFixed(2) || 0}
                     </dd>
                   </dl>
                   <dl className="list-unstyled m-0 mt-4">
@@ -537,7 +537,7 @@ const Page = () => {
               <div className="card-body px-5 py-4 d-flex align-items-center justify-content-between">
                 <h2 className="mb-0 fs-exact-18 me-4">Orders</h2>
                 <div className="text-muted fs-exact-14 text-end">
-                  Total spent £{parseFloat(spendTotal).toFixed(2) || 0} <br/>on {orders.length} orders
+                  Total spent ₹{parseFloat(spendTotal).toFixed(2) || 0} <br/>on {orders.length} orders
                 </div>
               </div>
               <div className="table-responsive">
@@ -655,7 +655,7 @@ const Page = () => {
                 setisOpen(false);
               }}
             >
-              ❌
+              âŒ
             </button>
           </div>
           <table className="sa-table text-nowrap border">

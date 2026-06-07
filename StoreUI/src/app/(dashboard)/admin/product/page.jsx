@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -200,7 +200,7 @@ const Page = () => {
                             <td>{product.quantity}</td>
                             <td>
                               <div className="sa-price">
-                                <span className="sa-price__symbol">£</span>
+                                <span className="sa-price__symbol">₹</span>
                                 <span className="sa-price__integer">
                                   {product.price}
                                 </span>

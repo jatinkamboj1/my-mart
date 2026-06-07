@@ -1,4 +1,4 @@
-import styles from "./page.module.scss";
+﻿import styles from "./page.module.scss";
 
 export default function TermsConditionsPage() {
   return (
@@ -332,7 +332,7 @@ export default function TermsConditionsPage() {
           <div className={styles.accBody}>
             <p className={styles.accParagraph}>
               All prices displayed on our website are
-              shown in Pounds Sterling (£).
+              shown in Pounds Sterling (₹).
             </p>
 
             <p className={styles.accParagraph}>

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Image from "next/image";
 import Script from "next/script";
 import Link from 'next/link';
@@ -69,10 +69,10 @@ const ProductCard = ({ product }) => {
                 <a href={`/product/${product.slug}`}>{product.name}</a>
             </h6>
             <div className="price-box">
-                <span className="price-regular">£{product.discountedPrice || product.price} <span className="price-regular-vat">(Ex. VAT)</span></span>
+                <span className="price-regular">₹{product.discountedPrice || product.price} <span className="price-regular-vat">(Ex. VAT)</span></span>
                 {product.discountedPrice && (
                     <span className="price-old">
-                        <del>£{product.price} <span className="price-old-vat">(Ex. VAT)</span></del>
+                        <del>₹{product.price} <span className="price-old-vat">(Ex. VAT)</span></del>
                     </span>
                 )}
             </div>

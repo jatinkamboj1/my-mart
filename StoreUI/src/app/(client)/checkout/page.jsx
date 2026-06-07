@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -16,14 +16,13 @@ import { applyCharges } from "@/app/api/charges";
 import "@/styles/checkout.scss";
 import "@/styles/cartPage.scss";
 
-import { createStripePaymentIntent } from "@/app/api/payments";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import { useMemo } from "react";
 import validator from "validator";
-import PaymentWrapper, { PaymentForm, stripePromise } from "@/components/Payments/payment";
+import PaymentWrapper, { PaymentForm } from "@/components/Payments/payment";
 
 
 /* ================= CHECKOUT PAGE ================= */
@@ -144,7 +143,7 @@ const CheckoutPage = () => {
     setDeliveryCharges(shipping)
     setDeliveryChargesOptions(shipping.map((s) => ({
       value: s.id,
-      label: `${s.deliveryType.name} - £${s.feeAmount} (Ex. VAT)`
+      label: `${s.deliveryType.name} - ₹${s.feeAmount} (Ex. VAT)`
     })));
     setFormData((prev) => ({
       ...prev,
@@ -426,12 +425,12 @@ const CheckoutPage = () => {
   };
 
   /* ================= SUBMIT ================= */
-  const handleSubmit = async (paymentMethodId) => {
+  const handleSubmit = async () => {
     setIsProcessing(true);
 
     try {
       /* ===============================
-        1️⃣ VALIDATION
+        1ï¸âƒ₹ VALIDATION
       =============================== */
       const { valid, errors } = validateCheckoutForm(formData, showBilling);
       
@@ -443,7 +442,7 @@ const CheckoutPage = () => {
       }
 
       /* ===============================
-        2️⃣ PREPARE ORDER
+        2ï¸âƒ₹ PREPARE ORDER
       =============================== */
       const orderData = {
         ...formData,
@@ -471,7 +470,7 @@ const CheckoutPage = () => {
       }
 
       /* ===============================
-        3️⃣ CREATE ORDER (PENDING)
+        3ï¸âƒ₹ CREATE ORDER (PENDING)
       =============================== */
       const orderResponse = await addOrder(token, orderData);
 
@@ -479,38 +478,22 @@ const CheckoutPage = () => {
         throw new Error("Order creation failed");
       }
 
-      const orderId = orderResponse.order.id;
-
-      /* ===============================
-        4️⃣ CREATE PAYMENT INTENT
-      =============================== */
-      const { clientSecret } = await createStripePaymentIntent(orderId, token);
-
-      /* ===============================
-        5️⃣ CONFIRM CARD PAYMENT
-      =============================== */
-      const stripe = await stripePromise;
-
-      const { error, paymentIntent } =
-        await stripe.confirmCardPayment(clientSecret, {
-          payment_method: paymentMethodId,
-        });
-
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      /* ===============================
-        6️⃣ SUCCESS
-      =============================== */
-      if (paymentIntent.status === "succeeded") {
-        await clearUserCart(token);
-        toast.success("Payment successful!");
-        router.push(`/order/${orderResponse.order.orderNumber}`);
-      }
+      return {
+        orderId: orderResponse.order.id,
+        orderNumber: orderResponse.order.orderNumber,
+      };
     } catch (err) {
       console.error("Checkout error:", err);
       toast.error(err.message || "Payment failed");
+      setIsProcessing(false);
+      return false;
+    }
+  };
+
+  const handlePaymentSuccess = async ({ orderNumber }) => {
+    try {
+      await clearUserCart(token);
+      router.push(`/order/${orderNumber}`);
     } finally {
       setIsProcessing(false);
     }
@@ -908,7 +891,7 @@ const CheckoutPage = () => {
                     {/* Products total */}
                     <div className="priceRow">
                       <span>Sub Total ({totalItems} items)</span>
-                      <span>£{Number(productsTotal).toFixed(2)} (Ex. VAT)</span>
+                      <span>₹{Number(productsTotal).toFixed(2)} (Ex. VAT)</span>
                     </div>
 
                     {/* Coupon */}
@@ -918,7 +901,7 @@ const CheckoutPage = () => {
                           Applied Coupon ({couponDetail.code})
                         </span>
                         <span>
-                          - £{Number(couponDetail.discount).toFixed(2)}
+                          - ₹{Number(couponDetail.discount).toFixed(2)}
                         </span>
                       </div>
                     )}
@@ -926,7 +909,7 @@ const CheckoutPage = () => {
                     {/* Shipping */}
                     <div className="priceRow">
                       <span>Delivery Charges</span>
-                      <span>£{Number(deliveryCharge.feeAmount || 0).toFixed(2)} (Ex. VAT)</span>
+                      <span>₹{Number(deliveryCharge.feeAmount || 0).toFixed(2)} (Ex. VAT)</span>
                     </div>
 
                     {/* Charges breakdown */}
@@ -934,14 +917,14 @@ const CheckoutPage = () => {
                       chargesResult.charges.map((charge, index) => (
                         <div className="priceRow" key={`charge-${index}`}>
                           <span>{charge.name}</span>
-                          <span>£{Number(charge.amount).toFixed(2)}</span>
+                          <span>₹{Number(charge.amount).toFixed(2)}</span>
                         </div>
                       ))}
 
                     {/* Final total */}
                     <div className="totalAmountRow">
                       <span>Total Amount</span>
-                      <span>£{Number(finalPayableAmount).toFixed(2)} (Inc. VAT)</span>
+                      <span>₹{Number(finalPayableAmount).toFixed(2)} (Inc. VAT)</span>
                     </div>
                   </div>
 
@@ -969,7 +952,7 @@ const CheckoutPage = () => {
 
                   {/* Savings */}
                   <p className="savingsMessage">
-                    You will save £
+                    You will save ₹
                     {(
                       (discountSaving) +
                       (couponDetail?.discount || 0)
@@ -1011,7 +994,16 @@ const CheckoutPage = () => {
 
                       <PaymentForm
                         handlePayment={handleSubmit}
+                        token={token}
+                        amount={finalPayableAmount}
+                        customer={{
+                          name: formData.userName,
+                          email: user.email,
+                          contact: formData.mobileNumber,
+                        }}
+                        onSuccess={handlePaymentSuccess}
                         isProcessing={isProcessing}
+                        setProcessing={setIsProcessing}
                       />
                     </div>
                   </div>}

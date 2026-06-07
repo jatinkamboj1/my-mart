@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
@@ -148,7 +148,7 @@ const Page = () => {
                   <div className="w-100">
                     <div className="d-flex justify-content-between">
                       <h6 className="fw-bold mb-0">{item.name}</h6>
-                      <span className="fw-semibold">£{item.price}</span>
+                      <span className="fw-semibold">₹{item.price}</span>
                     </div>
                     <p className="mb-1 text-muted">Quantity: {item.quantity}</p>
                   </div>
@@ -169,7 +169,7 @@ const Page = () => {
             <div className="d-flex justify-content-between mb-2">
               <span className="text-muted">Sub Total</span>
               <span className="fw-semibold">
-                £{Number(orders.summary["Sub Total"]).toFixed(2)}
+                ₹{Number(orders.summary["Sub Total"]).toFixed(2)}
               </span>
             </div>
 
@@ -186,7 +186,7 @@ const Page = () => {
                     )}
                     </span>
                   <span className="fw-semibold text-danger">
-                    - £{Number(coupon.amount).toFixed(2)}
+                    - ₹{Number(coupon.amount).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -203,7 +203,7 @@ const Page = () => {
               >
                 {Number(orders.summary["Delivery Charges"]) === 0
                   ? "FREE"
-                  : `£${Number(orders.summary["Delivery Charges"]).toFixed(2)}`}
+                  : `₹${Number(orders.summary["Delivery Charges"]).toFixed(2)}`}
               </span>
             </div>
 
@@ -218,7 +218,7 @@ const Page = () => {
                     {charge.name}
                   </span>
                   <span className="fw-semibold">
-                    £{Number(charge.amount).toFixed(2)}
+                    ₹{Number(charge.amount).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -227,7 +227,7 @@ const Page = () => {
             <div className="d-flex justify-content-between fw-bold border-top pt-2 mt-2 fs-5">
               <span>Total Amount</span>
               <span className="text-dark">
-                £{Number(orders.summary["Total Amount"]).toFixed(2)}
+                ₹{Number(orders.summary["Total Amount"]).toFixed(2)}
               </span>
             </div>
           </div>
@@ -323,7 +323,7 @@ const Page = () => {
                 </div>
                 <div>
                   <p className="mb-0 fw-semibold text-dark">
-                    Visa Card •••• 3234
+                    Visa Card â€¢â€¢â€¢â€¢ 3234
                   </p>
                   <small className="text-muted">Online Payment</small>
                 </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
@@ -342,7 +342,7 @@ const Page = () => {
   
     const fetchShippingFee = async (token) => {
       if (!token) return;
-      // Pick city or postcode as "zone" – whichever you treat as zone in backend
+      // Pick city or postcode as "zone" â€“ whichever you treat as zone in backend
       const zone =
         formState.shippingCity?.trim() ||
         formState.shippingState?.trim() ||
@@ -675,7 +675,7 @@ const Page = () => {
                       setIsOpen(false);
                     }}
                   >
-                    ❌
+                    âŒ
                   </button>
                 </div>
                 <hr />
@@ -859,7 +859,7 @@ const Page = () => {
                                 onClick={() => removeProduct(index)} // Trigger removeProduct on click
                                 className="text-red-500 hover:text-red-700"
                               >
-                                <span className="text-xl">❌</span>{" "}
+                                <span className="text-xl">âŒ</span>{" "}
                                 {/* Cross icon */}
                               </button>
                             </td>
@@ -914,7 +914,7 @@ const Page = () => {
                           </td>
                           <td className="text-end" colSpan="2">
                             <div className="sa-price">
-                              <span className="sa-price__symbol">£</span>
+                              <span className="sa-price__symbol">₹</span>
                               <span className="sa-price__integer">
                                 {(product.discountedPrice || product.price)}
                               </span>
@@ -924,7 +924,7 @@ const Page = () => {
                           </td>
                           <td className="text-end">
                             <div className="sa-price">
-                              <span className="sa-price__symbol">£</span>
+                              <span className="sa-price__symbol">₹</span>
                               <span className="sa-price__integer">
                                 {((product.discountedPrice || product.price) * product.stock)}
                               </span>
@@ -939,7 +939,7 @@ const Page = () => {
                       <td colSpan="3">Product Price</td>
                       <td className="text-end">
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {subTotal || 0}
                           </span>
@@ -952,7 +952,7 @@ const Page = () => {
                       </td>
                       <td className="text-end">
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {shipphingCharge || 0}
                           </span>
@@ -983,7 +983,7 @@ const Page = () => {
                       <td className="text-end">
                         <div className="sa-price">
                           <span className="sa-price__integer text-danger fw-semibold">
-                            - £{discountValue ? `${discountValue}` : "0"}
+                            - ₹{discountValue ? `${discountValue}` : "0"}
                           </span>
                         </div>
                       </td>
@@ -994,7 +994,7 @@ const Page = () => {
                       <td colSpan="3">Total</td>
                       <td className="text-end">
                         <div className="sa-price">
-                          <span className="sa-price__symbol">£</span>
+                          <span className="sa-price__symbol">₹</span>
                           <span className="sa-price__integer">
                             {total || 0}
                           </span>
@@ -1018,7 +1018,7 @@ const Page = () => {
                     <td>Grand Total</td>
                     <td className="text-end">
                       <div className="sa-price">
-                        <span className="sa-price__symbol">£</span>
+                        <span className="sa-price__symbol">₹</span>
                         <span className="sa-price__integer">
                           {total || 0}
                         </span>
@@ -1078,7 +1078,7 @@ const Page = () => {
                         </div>
                       </div>
 
-                      {/* ✅ Show input only if ONLINE selected */}
+                      {/* âœ… Show input only if ONLINE selected */}
                       {paymentMethod === "ONLINE" && (
                         <div style={{ marginTop: "8px" }}>
                           <label
@@ -1119,7 +1119,7 @@ const Page = () => {
                     <td>Paid by customer</td>
                     <td className="text-end">
                       <div className="sa-price">
-                        <span className="sa-price__symbol">£</span>
+                        <span className="sa-price__symbol">₹</span>
                         <span className="sa-price__integer">
                           {paidByCustomer || 0}
                         </span>
@@ -1137,7 +1137,7 @@ const Page = () => {
                     </td>
                     <td className="text-end">
                       <div className="sa-price">
-                        <span className="sa-price__symbol">£</span>
+                        <span className="sa-price__symbol">₹</span>
                         <span className="sa-price__integer">
                           {finalBalance || 0}
                         </span>

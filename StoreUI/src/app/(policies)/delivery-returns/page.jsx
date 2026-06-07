@@ -1,4 +1,4 @@
-// app/delivery-returns/page.jsx
+﻿// app/delivery-returns/page.jsx
 
 import styles from "./page.module.scss";
 
@@ -10,11 +10,11 @@ export default function DeliveryReturnsPage() {
         <h1 className={styles.heroTitle}>Delivery &amp; Returns</h1>
 
         <div className={styles.heroSubtitle}>
-          Delivery is FREE on orders over £60
+          Delivery is FREE on orders over ₹60
         </div>
 
         <div className={styles.heroSub2}>
-          Orders under £60 incur a delivery charge
+          Orders under ₹60 incur a delivery charge
         </div>
 
         <small className={styles.heroSmall}>
@@ -155,19 +155,19 @@ export default function DeliveryReturnsPage() {
                   </td>
 
                   <td className={styles.tableCellLast}>
-                    <strong>Free Standard Delivery</strong> approx. 1–2 days
-                    spend over £60
+                    <strong>Free Standard Delivery</strong> approx. 1â€“2 days
+                    spend over ₹60
                     <br />
 
-                    <strong>Economy (Tracked) 2–3 Days</strong> (small parcels
-                    only) – £4.74
+                    <strong>Economy (Tracked) 2â€“3 Days</strong> (small parcels
+                    only) â€“ ₹4.74
                     <br />
 
-                    <strong>Standard Delivery</strong> approx. 1–2 Days
-                    (Tracked) – £6.30
+                    <strong>Standard Delivery</strong> approx. 1â€“2 Days
+                    (Tracked) â€“ ₹6.30
                     <br />
 
-                    <strong>Next Working Day</strong> – £8.99 (last orders:
+                    <strong>Next Working Day</strong> â€“ ₹8.99 (last orders:
                     1:30pm)
                   </td>
                 </tr>
@@ -193,10 +193,10 @@ export default function DeliveryReturnsPage() {
                   </td>
 
                   <td className={styles.tableCellLast}>
-                    <strong>1–4 Days (Tracked)</strong> – £12 to £36
+                    <strong>1â€“4 Days (Tracked)</strong> â€“ ₹12 to ₹36
                     <br />
 
-                    <strong>2–4 Days (Tracked)</strong> – £4.74 (smaller items
+                    <strong>2â€“4 Days (Tracked)</strong> â€“ ₹4.74 (smaller items
                     and parcels)
                   </td>
                 </tr>
@@ -211,10 +211,10 @@ export default function DeliveryReturnsPage() {
                   <td className={styles.tableCell}>GY, JE</td>
 
                   <td className={styles.tableCellLast}>
-                    <strong>1–4 Days (Tracked)</strong> – £12 to £36
+                    <strong>1â€“4 Days (Tracked)</strong> â€“ ₹12 to ₹36
                     <br />
 
-                    <strong>2–4 Days (Tracked)</strong> – £4.74 (smaller items
+                    <strong>2â€“4 Days (Tracked)</strong> â€“ ₹4.74 (smaller items
                     and parcels)
                   </td>
                 </tr>
@@ -232,7 +232,7 @@ export default function DeliveryReturnsPage() {
                   <td className={styles.tableCell}>All postcodes</td>
 
                   <td className={styles.tableCellLast}>
-                    <strong>1–4 Days (Tracked)</strong> – £10–£75
+                    <strong>1â€“4 Days (Tracked)</strong> â€“ ₹10â€“₹75
                   </td>
                 </tr>
               </tbody>
@@ -258,7 +258,7 @@ export default function DeliveryReturnsPage() {
               <p className={styles.accParagraph}>
                 We always aim to dispatch your goods either the same day you ordered
                 or the following working day. In most cases we use 24 hour couriers,
-                so your boxes should be with you within 1–2 working days.
+                so your boxes should be with you within 1â€“2 working days.
               </p>
 
               <p className={styles.accParagraph}>
@@ -323,7 +323,7 @@ export default function DeliveryReturnsPage() {
               </p>
 
               <p className={styles.accParagraph}>
-                The fee for this is an additional £15 for the first parcel and £5
+                The fee for this is an additional ₹15 for the first parcel and ₹5
                 for each subsequent parcel.
               </p>
 
@@ -424,7 +424,7 @@ export default function DeliveryReturnsPage() {
               </p>
 
               <p className={styles.accParagraph}>
-                The delivery drivers will not take the pallet itself away with them –
+                The delivery drivers will not take the pallet itself away with them â€“
                 it&apos;s at the complete discretion of the individual driver if they
                 choose to do so. If this is an issue, please notify us at the time
                 of ordering.
@@ -461,14 +461,14 @@ export default function DeliveryReturnsPage() {
 
             <div className={styles.accBody}>
               <p className={styles.accParagraph}>
-                <strong>For Missing Items</strong> – make sure you&apos;ve checked all of
+                <strong>For Missing Items</strong> â€“ make sure you&apos;ve checked all of
                 the packaging and opened all boxes. If you are missing an item,
                 please contact us. You may be asked to provide evidence such as
                 photos.
               </p>
 
               <p className={styles.accParagraph}>
-                <strong>For Damaged Items</strong> – if the package is obviously
+                <strong>For Damaged Items</strong> â€“ if the package is obviously
                 damaged, then please sign for the parcel as damaged. Please take
                 photos of the box before opening it. Once opened, please also take
                 photos of any damages. You then have 30 days to get in touch with us.
@@ -511,8 +511,8 @@ export default function DeliveryReturnsPage() {
                 </li>
 
                 <li className={styles.accListItem}>
-                  If you are sending the goods back via your own means – we will
-                  email you with a copy of your order – simply print and tick which
+                  If you are sending the goods back via your own means â€“ we will
+                  email you with a copy of your order â€“ simply print and tick which
                   items are coming back and include this in with the parcel.
                 </li>
 
@@ -572,15 +572,15 @@ export default function DeliveryReturnsPage() {
 
               <p className={styles.accParagraph}>
                 To Mainland England, Southern Scotland and Wales. This is charged at
-                £6 for the first parcel and £4 for each subsequent parcel. For
+                ₹6 for the first parcel and ₹4 for each subsequent parcel. For
                 example, if your order was received in two parcels, then this would
-                cost £10. All other areas – £12 per outer parcel.
+                cost ₹10. All other areas â€“ ₹12 per outer parcel.
               </p>
 
               <h6 className={styles.accSubHeading}>Via Pallet</h6>
 
               <p className={styles.accParagraph}>
-                Pallet collections are charged at £60 per pallet. Please keep the
+                Pallet collections are charged at ₹60 per pallet. Please keep the
                 pallet if you are not sure you will be keeping the items, as we would
                 not be able to supply you with a pallet and packaging for the return
                 journey.
