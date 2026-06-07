@@ -110,7 +110,15 @@ const Header = () => {
               <a href="#" style={{ color: "#fff", display: "flex", alignItems: "center" }}><Twitter size={16} /></a>
             </div>
             <div className="text-center flex-grow-1">
-              Free Shipping Anywhere in India for orders above Rs 499
+              {settings["announcement.text"] ? (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: safeSanitize(settings["announcement.text"]),
+                  }}
+                />
+              ) : (
+                "Free Shipping Anywhere in India for orders above Rs 499"
+              )}
             </div>
             <div>
               <a href="/stores" style={{ color: "#fff", display: "flex", alignItems: "center", gap: "4px" }}>
@@ -120,15 +128,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {settings["announcement.text"] && <div className="announcement-bar" role="region" aria-label="Announcement">
-        <div className="announcement-bar__message">
-          <span
-            dangerouslySetInnerHTML={{
-              __html: safeSanitize(settings["announcement.text"]),
-            }}
-          />
-        </div>
-      </div>}
+
       <div className=" main-header d-none d-lg-block">
         <div className={`header-main-area sticky`}>
           <div className="container">

@@ -16,7 +16,7 @@ body {
   --sa-scheme-light--opposite-color: #212529;
   --sa-scheme-dark--main-color: #3d464d;
   --sa-scheme-dark--opposite-color: #fff;
-  --sa-scheme-theme--main-color: #ffd333;
+  --sa-scheme-theme--main-color: #ce1a48;
   --sa-scheme-theme--opposite-color: #3d464d;
 }
 
@@ -497,7 +497,7 @@ body {
 }
 
 .badge-sa-theme {
-  background: #ffd333 !important;
+  background: #ce1a48 !important;
   color: #3d464d !important;
 }
 
@@ -644,14 +644,14 @@ body {
 }
 
 .btn-primary {
-  --sa-button--normal-bg-color: #ffd333;
-  --sa-button--normal-font-color: #212529;
+  --sa-button--normal-bg-color: #ce1a48;
+  --sa-button--normal-font-color: #fff;
   --sa-arrow-opacity: 0.4;
-  --sa-button--hover-bg-color: #f5c000;
+  --sa-button--hover-bg-color: #8a0f2e;
 }
 
 .btn-primary.btn-sa-loading:before {
-  border-color: #21252999 #21252933 #21252933;
+  border-color: #fff9 #fff3 #fff3;
 }
 
 .btn-secondary {
@@ -744,19 +744,19 @@ body {
 
 .btn-outline-primary {
   --sa-button--normal-bg-color: #0000;
-  --sa-button--normal-border-color: #ffd333;
-  --sa-button--normal-font-color: #ffd333;
-  --sa-button--hover-bg-color: #ffd333;
-  --sa-button--hover-font-color: #212529;
-  --sa-button--active-bg-color: #f5c000;
+  --sa-button--normal-border-color: #ce1a48;
+  --sa-button--normal-font-color: #ce1a48;
+  --sa-button--hover-bg-color: #ce1a48;
+  --sa-button--hover-font-color: #fff;
+  --sa-button--active-bg-color: #8a0f2e;
 }
 
 .btn-outline-primary.btn-sa-loading {
-  --sa-button--normal-bg-color: #ffd333;
+  --sa-button--normal-bg-color: #ce1a48;
 }
 
 .btn-outline-primary.btn-sa-loading:before {
-  border-color: #21252999 #21252933 #21252933;
+  border-color: #fff9 #fff3 #fff3;
 }
 
 .btn-outline-secondary {
@@ -1759,7 +1759,7 @@ body {
 }
 
 .nav-tabs .nav-link-sa-indicator {
-  background: #ffd333;
+  background: #ce1a48;
   border-radius: 0.09375rem;
   bottom: -0.125rem;
   box-shadow: inset 0 0 0 1px #00000005;
@@ -2165,7 +2165,7 @@ body {
 }
 
 .progress-bar-sa-primary {
-  --sa-progress--bg-color: #ffd333;
+  --sa-progress--bg-color: #ce1a48;
   --sa-progress--font-color: #212529;
   --sa-progress--strip-color: #00000012;
 }
@@ -2695,7 +2695,7 @@ body {
 }
 
 .datepicker--cell.-current- {
-  background: #ffd33340;
+  background: #ce1a4840;
   color: inherit;
 }
 
@@ -2707,7 +2707,7 @@ body {
 .datepicker--cell.-selected-.-other-decade-,
 .datepicker--cell.-selected-.-other-month-,
 .datepicker--cell.-selected-:hover {
-  background: #ffd333;
+  background: #ce1a48;
   color: #3d464d;
 }
 
@@ -2938,7 +2938,7 @@ body {
 }
 
 .fc .fc-h-event {
-  --fc-event-bg-color: #ffd333;
+  --fc-event-bg-color: #ce1a48;
   --fc-event-border-color: #0000;
 }
 
@@ -2984,7 +2984,7 @@ body {
 }
 
 .noUi-connect {
-  background: #ffd333;
+  background: #ce1a48;
 }
 
 .noUi-handle {
@@ -3001,7 +3001,7 @@ body {
 }
 
 .noUi-handle:before {
-  background: #ffd333;
+  background: #ce1a48;
   border-radius: 0.25rem;
   content: "";
   display: block;
@@ -4297,7 +4297,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-folder__image {
-  color: #ffd333;
+  color: #ce1a48;
   display: flex;
   font-size: 2rem;
   justify-content: center;
@@ -5143,7 +5143,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-symbol--style--theme {
-  --sa-symbol--bg-color: #ffd333;
+  --sa-symbol--bg-color: #ce1a48;
   --sa-symbol--font-color: #3d464d;
 }
 
@@ -5335,7 +5335,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-timeline__item:before {
-  background: #ffd333;
+  background: #ce1a48;
   border: 0.125rem solid var(--sa-timeline--parent-bg-color);
   border-radius: 50%;
   content: "";
@@ -5834,7 +5834,7 @@ input:checked + .sa-color-checkbox__box {
 
 .select2-container--default
   .select2-results__option--highlighted[aria-selected] {
-  background-color: #ffd33359;
+  background-color: #ce1a4859;
   color: #3d464d;
 }
 
@@ -6247,6 +6247,7 @@ input:checked + .sa-color-checkbox__box {
 
 .sa-nav--sidebar .sa-nav__link:hover {
   background-color: var(--theme-dark-active-color);
+  color: white;
 }
 
 .sa-nav--sidebar .sa-nav__menu-item-padding {
@@ -6302,7 +6303,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-nav--sidebar .sa-nav__arrow svg {
-  fill: #fff;
+  fill: currentColor;
 }
 
 [dir="rtl"] .sa-nav--sidebar .sa-nav__arrow {
@@ -6722,8 +6723,8 @@ input:checked + .sa-color-checkbox__box {
 .sa-sidebar {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -6934,7 +6935,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-toolbar__button-indicator {
-  background: #ffd333;
+  background: #ce1a48;
   border-radius: 0.40625rem;
   color: #3d464d;
   font-size: 0.5625rem;
@@ -9084,7 +9085,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-price-card__badge {
-  background: #ffd333;
+  background: #ce1a48;
   border-radius: 0.125rem;
   color: #3d464d;
   font-size: 0.8125rem;
@@ -9240,7 +9241,7 @@ input:checked + .sa-color-checkbox__box {
 
 .sa-invoice-logo__ribbon-middle {
   align-items: center;
-  background: #ffd333;
+  background: #ce1a48;
   color: #3d464d;
   display: flex;
   font-size: 0.6875rem;
@@ -9252,7 +9253,7 @@ input:checked + .sa-color-checkbox__box {
 
 .sa-invoice-logo__ribbon-end,
 .sa-invoice-logo__ribbon-start {
-  fill: #ffd333;
+  fill: #ce1a48;
 }
 
 .sa-invoice-logo__ribbon-start {
@@ -9284,7 +9285,7 @@ input:checked + .sa-color-checkbox__box {
 }
 
 .sa-roller-sponge {
-  fill: #ffd333;
+  fill: #ce1a48;
 }
 
 .sa-roller-handle,

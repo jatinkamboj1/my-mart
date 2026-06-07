@@ -15,41 +15,41 @@ const public_url = process.env.NEXT_PUBLIC_UR;
 export async function generateMetadata({ params }) {
   const currentUrl = `${public_url}${params?.path ? `/${params.path}` : ''}`;
   return {
-    title: "MY MART | Home Care & Daily Essentials",
+    title: "Wedding Touch | Premium Fashion Jewellery",
     description:
-      "MY MART is a trusted destination for home care and daily essentials, delivering quality products that keep homes clean, safe, and comfortable.",
+      "Wedding Touch is a trusted destination for fashion jewellery and daily wear, delivering quality products that enhance your style.",
     keywords:
-      "MY MART, home care products, cleaning supplies, daily essentials, household products, hygiene essentials, UK home care store",
+      "Wedding Touch, fashion jewellery, necklaces, earrings, wedding store, silver, occasional wear",
     robots: {
       index: false,
       follow: false,
     },
     openGraph: {
-      title: "MY MART | Care for Every Home",
+      title: "Wedding Touch | Premium Fashion Jewellery",
       description:
-        "Discover trusted home care and daily essentials at MY MART. Quality products designed for cleaner, healthier living.",
+        "Discover trusted fashion jewellery and accessories at Wedding Touch. Quality products designed for elegant living.",
       url: currentUrl,
       images: [
         {
           url: cardImage,
           width: 1200,
           height: 630,
-          alt: "MY MART – Home Care & Daily Essentials",
+          alt: "Wedding Touch – Premium Fashion Jewellery",
         },
       ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "MY MART | Care for Every Home",
+      title: "Wedding Touch | Premium Fashion Jewellery",
       description:
-        "Your trusted destination for home care and daily essentials. Clean living made easy with MY MART.",
+        "Your trusted destination for premium fashion jewellery. Elegant living made easy with Wedding Touch.",
       images: [cardImage],
     },
     alternates: {
       canonical: currentUrl,
     },
-    authors: [{ name: "MY MART" }],
+    authors: [{ name: "Wedding Touch" }],
     charset: "UTF-8",
   };
 }

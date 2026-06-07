@@ -196,13 +196,22 @@ const SideNav = () => {
           <i className={isMenuOpen ? "pe-7s-angle-left" : "pe-7s-angle-right"}></i>
         </div>
         <div className="sa-sidebar__header">
-          <img
-            height={82}
-            width={200}
-            src="/logo.png"
-            alt="Brand Logo"
-            // style={{ filter: "brightness(0)" }}
-          />
+          <Link href="/admin">
+            <div style={{
+              maskImage: 'url(/logo.png)',
+              WebkitMaskImage: 'url(/logo.png)',
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'left center',
+              WebkitMaskPosition: 'left center',
+              backgroundColor: 'var(--sa-scheme-theme--main-color)',
+              height: '45px',
+              width: '160px',
+              display: 'inline-block'
+            }} role="img" aria-label="Brand Logo"></div>
+          </Link>
         </div>
         <div className="sa-sidebar__body">
           <div className="sa-nav sa-nav--sidebar">
