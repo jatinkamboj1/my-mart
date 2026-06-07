@@ -475,7 +475,7 @@ const Page = () => {
                       </div>
                       <div className="mt-2">
                         <PhoneInput
-                          country={'gb'}
+                          country={'in'}
                           value={customer.phone?.replace("+", "")}
                           onChange={(phone, countryData, e, formattedValue) => {                          
                             handleChange({

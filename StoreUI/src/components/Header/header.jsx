@@ -5,7 +5,7 @@ import { useSession, signOut } from "next-auth/react";
 import useWishlistStore from "@/store/wishlistStore";
 import useCartStore from "@/store/cartStore";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Phone } from "lucide-react";
+import { ChevronDown, Phone, Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 import { fetchSettingsByKeys } from "@/app/api/siteSettings";
 import { safeSanitize } from "@/lib/utils";
 
@@ -101,6 +101,25 @@ const Header = () => {
 
   return (
     <header className="header-area header-wide">
+      <div style={{ backgroundColor: "var(--theme-active-color)", color: "#fff", padding: "8px 0", fontSize: "14px" }}>
+        <div className="container">
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex gap-3 align-items-center">
+              <a href="#" style={{ color: "#fff", display: "flex", alignItems: "center" }}><Facebook size={16} /></a>
+              <a href="#" style={{ color: "#fff", display: "flex", alignItems: "center" }}><Instagram size={16} /></a>
+              <a href="#" style={{ color: "#fff", display: "flex", alignItems: "center" }}><Twitter size={16} /></a>
+            </div>
+            <div className="text-center flex-grow-1">
+              Free Shipping Anywhere in India for orders above Rs 499
+            </div>
+            <div>
+              <a href="/stores" style={{ color: "#fff", display: "flex", alignItems: "center", gap: "4px" }}>
+                <MapPin size={16} /> Locate Stores
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       {settings["announcement.text"] && <div className="announcement-bar" role="region" aria-label="Announcement">
         <div className="announcement-bar__message">
           <span
@@ -120,7 +139,20 @@ const Header = () => {
               <div className="col-md-2 col-lg-2 col-xl-3">
                 <div className="logo">
                   <a href="/">
-                    <img src="/logo.png" alt="Brand Logo" />
+                    <div style={{
+                      maskImage: 'url(/logo.png)',
+                      WebkitMaskImage: 'url(/logo.png)',
+                      maskSize: 'contain',
+                      WebkitMaskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskPosition: 'left center',
+                      WebkitMaskPosition: 'left center',
+                      backgroundColor: 'var(--theme-active-color)',
+                      height: '45px',
+                      width: '160px',
+                      display: 'inline-block'
+                    }} role="img" aria-label="Brand Logo"></div>
                   </a>
                 </div>
               </div>
@@ -249,7 +281,20 @@ const Header = () => {
               <div className="mobile-main-header">
                 <div className="mobile-logo">
                   <a href="/">
-                    <img src="/logo.png" alt="Brand Logo" />
+                    <div style={{
+                      maskImage: 'url(/logo.png)',
+                      WebkitMaskImage: 'url(/logo.png)',
+                      maskSize: 'contain',
+                      WebkitMaskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskPosition: 'left center',
+                      WebkitMaskPosition: 'left center',
+                      backgroundColor: 'var(--theme-active-color)',
+                      height: '35px',
+                      width: '120px',
+                      display: 'inline-block'
+                    }} role="img" aria-label="Brand Logo"></div>
                   </a>
                 </div>
                 <div className="mobile-menu-toggler">

@@ -548,7 +548,7 @@ const CheckoutPage = () => {
                           <label htmlFor="mobileNumber">Phone Number</label>
 
                           <PhoneInput
-                            country={'gb'} // default country (change if needed)
+                            country={'in'} // default country (change if needed)
                             value={formData.mobileNumber?.replace("+", "")}
                             onChange={(phone, countryData, e, formattedValue) => {                          
                               handleChange({
