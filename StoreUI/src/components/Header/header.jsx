@@ -33,7 +33,7 @@ const Header = () => {
   async function load() {
     try {
       const [settingsData, categoryData] = await Promise.all([
-        fetchSettingsByKeys(["announcement.text", "search.heading"]),
+        fetchSettingsByKeys(["search.heading"]),
         getNavCategory(),
       ]);
 
@@ -110,15 +110,7 @@ const Header = () => {
               <a href="#" style={{ color: "#fff", display: "flex", alignItems: "center" }}><Twitter size={16} /></a>
             </div>
             <div className="text-center flex-grow-1">
-              {settings["announcement.text"] ? (
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: safeSanitize(settings["announcement.text"]),
-                  }}
-                />
-              ) : (
-                "Free Shipping Anywhere in India for orders above Rs 499"
-              )}
+              Free Shipping Anywhere in India for orders above Rs 499
             </div>
             <div>
               <a href="/stores" style={{ color: "#fff", display: "flex", alignItems: "center", gap: "4px" }}>
